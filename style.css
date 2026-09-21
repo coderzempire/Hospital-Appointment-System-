@@ -20,10 +20,23 @@ html {
 
 body {
     font-family: "Segoe UI", Arial, sans-serif;
-    background: #f5f9fc;
+
+    background-image:
+        linear-gradient(
+            rgba(245, 249, 252, 0.88),
+            rgba(245, 249, 252, 0.88)
+        ),
+        url("Internal storage/Pictures/d72e59a82fd72e39902ca4f31321e259.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
     color: #16324f;
     line-height: 1.6;
     overflow-x: hidden;
+}
 }
 
 button,
