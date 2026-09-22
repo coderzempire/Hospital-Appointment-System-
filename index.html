@@ -3,604 +3,591 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>MediCare - Doctor Dashboard</title>
 
-    <meta name="description"
-          content="Professional Online Hospital Appointment System">
-
-    <title>Hospital Appointment System</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
-    <header class="header">
+    <div class="dashboard">
 
-        <div class="container navbar">
+        <!-- ================= SIDEBAR ================= -->
 
-            <div class="logo">
-                <div class="logo-icon">+</div>
+        <aside class="sidebar" id="sidebar">
 
-                <div>
-                    <h2>MediCare</h2>
-                    <span>Hospital & Healthcare</span>
+            <div class="doctor-profile">
+
+                <div class="doctor-photo">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                        alt="Doctor">
                 </div>
+
+                <h2>Dr. Martin Deo</h2>
+
+                <p>
+                    MBBS, FCPS - MD (Medicine), MCPS
+                </p>
+
+                <div class="profile-line"></div>
+
             </div>
 
-            <nav class="nav-menu" id="navMenu">
 
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#doctors">Doctors</a>
-                <a href="#appointment">Appointment</a>
-                <a href="#contact">Contact</a>
+            <!-- Navigation -->
+
+            <nav class="sidebar-nav">
+
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-table-cells"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#appointment" class="nav-item">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>Appointment</span>
+                </a>
+
+                <a href="#appointment-page" class="nav-item">
+                    <i class="fa-regular fa-file-lines"></i>
+                    <span>Appointment Page</span>
+                </a>
+
+                <a href="#payment" class="nav-item">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <span>Payment</span>
+                </a>
+
+                <a href="#profile" class="nav-item">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profile</span>
+                </a>
+
+                <a href="#settings" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
 
             </nav>
 
-            <div class="nav-buttons">
-
-                <button class="btn btn-outline"
-                        onclick="openLogin()">
-                    Login
-                </button>
-
-                <button class="btn btn-primary"
-                        onclick="scrollToAppointment()">
-                    Book Appointment
-                </button>
-
-            </div>
-
-            <button class="menu-toggle"
-                    onclick="toggleMenu()">
-                ☰
-            </button>
-
-        </div>
-
-    </header>
+        </aside>
 
 
-    <!-- ================= HERO ================= -->
-    <section class="hero" id="home">
+        <!-- ================= MAIN CONTENT ================= -->
 
-        <div class="hero-overlay"></div>
+        <main class="main-content">
 
-        <div class="container hero-content">
+            <!-- TOP BAR -->
 
-            <div class="hero-text">
+            <header class="topbar">
 
-                <span class="badge">
-                    🏥 Trusted Healthcare Platform
-                </span>
+                <div class="page-title">
+                    <h1>Dashboard</h1>
+                </div>
 
-                <h1>
-                    Your Health,
-                    <span>Our Priority.</span>
-                </h1>
+                <div class="top-actions">
 
-                <p>
-                    Find the right doctor, choose a convenient time,
-                    and book your hospital appointment quickly and easily.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <button class="btn btn-primary btn-large"
-                            onclick="scrollToAppointment()">
-                        📅 Book Appointment
+                    <button class="icon-btn" title="Messages">
+                        <i class="fa-regular fa-envelope"></i>
                     </button>
 
-                    <button class="btn btn-light btn-large"
-                            onclick="scrollToDoctors()">
-                        👨‍⚕️ Find a Doctor
+                    <button class="icon-btn notification-btn" title="Notifications">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="searchInput" placeholder="Search">
+                    </div>
+
+                    <button class="menu-btn" id="menuBtn">
+                        <i class="fa-solid fa-bars"></i>
                     </button>
 
                 </div>
 
-                <div class="hero-stats">
+            </header>
 
-                    <div>
-                        <strong>50+</strong>
-                        <span>Doctors</span>
+
+            <!-- ================= STATISTICS ================= -->
+
+            <section class="stats-grid">
+
+                <!-- Total Patient -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-user-injured"></i>
                     </div>
 
-                    <div>
-                        <strong>15+</strong>
-                        <span>Departments</span>
-                    </div>
-
-                    <div>
-                        <strong>24/7</strong>
-                        <span>Support</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= QUICK SERVICES ================= -->
-    <section class="quick-section">
-
-        <div class="container quick-grid">
-
-            <div class="quick-card">
-                <div class="quick-icon">👨‍⚕️</div>
-                <div>
-                    <h3>Find Doctors</h3>
-                    <p>Search qualified doctors</p>
-                </div>
-            </div>
-
-            <div class="quick-card">
-                <div class="quick-icon">📅</div>
-                <div>
-                    <h3>Book Appointment</h3>
-                    <p>Choose your convenient time</p>
-                </div>
-            </div>
-
-            <div class="quick-card">
-                <div class="quick-icon">🏥</div>
-                <div>
-                    <h3>Departments</h3>
-                    <p>Explore medical departments</p>
-                </div>
-            </div>
-
-            <div class="quick-card">
-                <div class="quick-icon">🚑</div>
-                <div>
-                    <h3>Emergency</h3>
-                    <p>24/7 emergency assistance</p>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= SERVICES ================= -->
-    <section class="section" id="services">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <span class="section-label">
-                    OUR SERVICES
-                </span>
-
-                <h2>Healthcare Made Simple</h2>
-
-                <p>
-                    Everything you need to manage your healthcare
-                    appointment in one place.
-                </p>
-
-            </div>
-
-
-            <div class="service-grid">
-
-                <div class="service-card">
-
-                    <div class="service-icon">📅</div>
-
-                    <h3>Online Appointment</h3>
-
-                    <p>
-                        Book appointments with doctors
-                        without waiting in long queues.
-                    </p>
-
-                    <button onclick="scrollToAppointment()">
-                        Book Now →
-                    </button>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <div class="service-icon">👨‍⚕️</div>
-
-                    <h3>Find a Doctor</h3>
-
-                    <p>
-                        Explore doctors according to
-                        department and specialization.
-                    </p>
-
-                    <button onclick="scrollToDoctors()">
-                        View Doctors →
-                    </button>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <div class="service-icon">🏥</div>
-
-                    <h3>Medical Departments</h3>
-
-                    <p>
-                        Access different healthcare
-                        departments and specialties.
-                    </p>
-
-                    <button onclick="showDepartments()">
-                        Explore →
-                    </button>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <div class="service-icon">📋</div>
-
-                    <h3>Patient Records</h3>
-
-                    <p>
-                        Keep track of appointments and
-                        important healthcare information.
-                    </p>
-
-                    <button onclick="openLogin()">
-                        Patient Login →
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= DOCTORS ================= -->
-    <section class="section doctors-section"
-             id="doctors">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <span class="section-label">
-                    OUR SPECIALISTS
-                </span>
-
-                <h2>Meet Our Doctors</h2>
-
-                <p>
-                    Experienced healthcare professionals
-                    dedicated to patient care.
-                </p>
-
-            </div>
-
-
-            <div class="doctor-grid">
-
-                <div class="doctor-card">
-
-                    <div class="doctor-avatar">
-                        👨‍⚕️
-                    </div>
-
-                    <h3>Dr. Rahul Sharma</h3>
-
-                    <span>Cardiologist</span>
-
-                    <p>10+ Years Experience</p>
-
-                    <button class="btn btn-primary"
-                            onclick="selectDoctor('Dr. Rahul Sharma')">
-                        Book Appointment
-                    </button>
-
-                </div>
-
-
-                <div class="doctor-card">
-
-                    <div class="doctor-avatar">
-                        👩‍⚕️
-                    </div>
-
-                    <h3>Dr. Priya Singh</h3>
-
-                    <span>General Physician</span>
-
-                    <p>8+ Years Experience</p>
-
-                    <button class="btn btn-primary"
-                            onclick="selectDoctor('Dr. Priya Singh')">
-                        Book Appointment
-                    </button>
-
-                </div>
-
-
-                <div class="doctor-card">
-
-                    <div class="doctor-avatar">
-                        👨‍⚕️
-                    </div>
-
-                    <h3>Dr. Arjun Mehta</h3>
-
-                    <span>Neurologist</span>
-
-                    <p>12+ Years Experience</p>
-
-                    <button class="btn btn-primary"
-                            onclick="selectDoctor('Dr. Arjun Mehta')">
-                        Book Appointment
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= APPOINTMENT ================= -->
-    <section class="appointment-section"
-             id="appointment">
-
-        <div class="container">
-
-            <div class="appointment-box">
-
-                <div class="appointment-info">
-
-                    <span class="section-label">
-                        APPOINTMENT
-                    </span>
-
-                    <h2>Book Your Appointment</h2>
-
-                    <p>
-                        Fill in your details and choose your
-                        preferred doctor and appointment date.
-                    </p>
-
-                    <div class="appointment-feature">
-                        ✓ Easy online booking
-                    </div>
-
-                    <div class="appointment-feature">
-                        ✓ Choose your preferred doctor
-                    </div>
-
-                    <div class="appointment-feature">
-                        ✓ Convenient appointment timing
+                    <div class="stat-info">
+                        <h3>Total Patient</h3>
+                        <strong>2000+</strong>
+                        <p>Till Today</p>
                     </div>
 
                 </div>
 
 
-                <form class="appointment-form"
-                      id="appointmentForm">
+                <!-- Today Patient -->
 
-                    <div class="form-group">
+                <div class="stat-card">
 
-                        <label for="patientName">
-                            Patient Name
-                        </label>
-
-                        <input type="text"
-                               id="patientName"
-                               placeholder="Enter your name"
-                               required>
-
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-user-doctor"></i>
                     </div>
 
-
-                    <div class="form-group">
-
-                        <label for="patientEmail">
-                            Email
-                        </label>
-
-                        <input type="email"
-                               id="patientEmail"
-                               placeholder="Enter your email"
-                               required>
-
+                    <div class="stat-info">
+                        <h3>Today Patient</h3>
+                        <strong>068</strong>
+                        <p>21 Dec-2021</p>
                     </div>
 
+                </div>
 
-                    <div class="form-row">
 
-                        <div class="form-group">
+                <!-- Today Appointment -->
 
-                            <label for="doctor">
-                                Doctor
-                            </label>
+                <div class="stat-card">
 
-                            <select id="doctor" required>
+                    <div class="stat-icon">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
 
-                                <option value="">
-                                    Select Doctor
-                                </option>
+                    <div class="stat-info">
+                        <h3>Today Appointments</h3>
+                        <strong>085</strong>
+                        <p>21 Dec-2021</p>
+                    </div>
 
-                                <option>
-                                    Dr. Rahul Sharma
-                                </option>
+                </div>
 
-                                <option>
-                                    Dr. Priya Singh
-                                </option>
+            </section>
 
-                                <option>
-                                    Dr. Arjun Mehta
-                                </option>
 
-                            </select>
+            <!-- ================= MIDDLE SECTION ================= -->
 
+            <section class="middle-grid">
+
+                <!-- Patient Summary -->
+
+                <div class="card patient-summary">
+
+                    <div class="card-title">
+                        <h2>Patients Summary December 2021</h2>
+                    </div>
+
+                    <div class="donut-area">
+
+                        <div class="donut-chart">
+                            <div class="donut-hole"></div>
                         </div>
 
+                        <div class="chart-labels">
 
-                        <div class="form-group">
+                            <div>
+                                <span class="legend new"></span>
+                                New Patients
+                            </div>
 
-                            <label for="date">
-                                Date
-                            </label>
+                            <div>
+                                <span class="legend old"></span>
+                                Old Patients
+                            </div>
 
-                            <input type="date"
-                                   id="date"
-                                   required>
+                            <div>
+                                <span class="legend total"></span>
+                                Total Patients
+                            </div>
 
                         </div>
 
                     </div>
 
+                </div>
 
-                    <div class="form-group">
 
-                        <label for="message">
-                            Additional Message
-                        </label>
+                <!-- Today's Appointment -->
 
-                        <textarea id="message"
-                                  rows="3"
-                                  placeholder="Tell us anything important..."></textarea>
+                <div class="card today-appointment" id="appointment">
+
+                    <div class="card-title">
+                        <h2>Today Appointment</h2>
+                    </div>
+
+                    <div class="appointment-heading">
+                        <span>Patient</span>
+                        <span>Name/Diagnosis</span>
+                        <span>Time</span>
+                    </div>
+
+
+                    <div class="appointment-row">
+
+                        <div class="patient-small">
+                            <img src="https://randomuser.me/api/portraits/men/41.jpg">
+                        </div>
+
+                        <div>
+                            <strong>M.J. Mical</strong>
+                            <small>Health Checkup</small>
+                        </div>
+
+                        <span class="time-badge ongoing">
+                            On Going
+                        </span>
 
                     </div>
 
 
-                    <button type="submit"
-                            class="btn btn-primary btn-full">
-                        Confirm Appointment
+                    <div class="appointment-row">
+
+                        <div class="patient-small">
+                            <img src="https://randomuser.me/api/portraits/men/44.jpg">
+                        </div>
+
+                        <div>
+                            <strong>Sanath Deo</strong>
+                            <small>Health Checkup</small>
+                        </div>
+
+                        <span class="time-badge">
+                            12 : 30 PM
+                        </span>
+
+                    </div>
+
+
+                    <div class="appointment-row">
+
+                        <div class="patient-small">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg">
+                        </div>
+
+                        <div>
+                            <strong>Loeara Phani</strong>
+                            <small>Report</small>
+                        </div>
+
+                        <span class="time-badge">
+                            01 : 00 PM
+                        </span>
+
+                    </div>
+
+
+                    <div class="appointment-row">
+
+                        <div class="patient-small">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg">
+                        </div>
+
+                        <div>
+                            <strong>Komola Haris</strong>
+                            <small>Common Cold</small>
+                        </div>
+
+                        <span class="time-badge">
+                            01 : 30 PM
+                        </span>
+
+                    </div>
+
+                    <button class="see-all">
+                        See All
                     </button>
 
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
+                </div>
 
 
-    <!-- ================= FOOTER ================= -->
-    <footer id="contact">
+                <!-- Next Patient -->
 
-        <div class="container footer-grid">
+                <div class="card next-patient">
 
-            <div>
+                    <div class="card-title">
+                        <h2>Next Patient Details</h2>
+                    </div>
 
-                <div class="logo footer-logo">
+                    <div class="next-patient-top">
 
-                    <div class="logo-icon">+</div>
+                        <img src="https://randomuser.me/api/portraits/men/44.jpg">
 
-                    <div>
-                        <h2>MediCare</h2>
-                        <span>Hospital & Healthcare</span>
+                        <div>
+                            <strong>Sanath Deo</strong>
+                            <span>Health Checkup</span>
+                        </div>
+
+                        <div class="patient-id">
+                            <strong>Patient ID</strong>
+                            <span>022090200005</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="patient-details">
+
+                        <div>
+                            <small>D.O.B</small>
+                            <strong>15 January 1989</strong>
+                        </div>
+
+                        <div>
+                            <small>Sex</small>
+                            <strong>Male</strong>
+                        </div>
+
+                        <div>
+                            <small>Weight</small>
+                            <strong>59 Kg</strong>
+                        </div>
+
+                        <div>
+                            <small>Last Appointment</small>
+                            <strong>15 Dec - 2021</strong>
+                        </div>
+
+                        <div>
+                            <small>Height</small>
+                            <strong>172 cm</strong>
+                        </div>
+
+                        <div>
+                            <small>Reg. Date</small>
+                            <strong>10 Dec 2021</strong>
+                        </div>
+
+                    </div>
+
+
+                    <h3 class="history-title">
+                        Patient History
+                    </h3>
+
+                    <div class="history-tags">
+
+                        <span>Asthma</span>
+                        <span>Hypertension</span>
+                        <span>Fever</span>
+
+                    </div>
+
+
+                    <div class="patient-buttons">
+
+                        <button>
+                            <i class="fa-solid fa-phone"></i>
+                            (308) 555-0102
+                        </button>
+
+                        <button>
+                            <i class="fa-regular fa-folder"></i>
+                            Document
+                        </button>
+
+                        <button>
+                            <i class="fa-regular fa-comment"></i>
+                            Chat
+                        </button>
+
+                    </div>
+
+                    <h3 class="history-title">
+                        Last Prescriptions
+                    </h3>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= BOTTOM SECTION ================= -->
+
+            <section class="bottom-grid">
+
+                <!-- Patient Review -->
+
+                <div class="card review-card">
+
+                    <div class="card-title">
+                        <h2>Patients Review</h2>
+                    </div>
+
+                    <div class="review-row">
+                        <span>Excellent</span>
+                        <div class="review-line">
+                            <div class="review-progress excellent"></div>
+                        </div>
+                    </div>
+
+                    <div class="review-row">
+                        <span>Great</span>
+                        <div class="review-line">
+                            <div class="review-progress great"></div>
+                        </div>
+                    </div>
+
+                    <div class="review-row">
+                        <span>Good</span>
+                        <div class="review-line">
+                            <div class="review-progress good"></div>
+                        </div>
+                    </div>
+
+                    <div class="review-row">
+                        <span>Average</span>
+                        <div class="review-line">
+                            <div class="review-progress average"></div>
+                        </div>
                     </div>
 
                 </div>
 
-                <p>
-                    Providing simple and accessible
-                    healthcare appointment services.
-                </p>
 
-            </div>
+                <!-- Appointment Request -->
 
+                <div class="card request-card">
 
-            <div>
-
-                <h3>Quick Links</h3>
-
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#doctors">Doctors</a>
-                <a href="#appointment">Appointment</a>
-
-            </div>
+                    <div class="card-title">
+                        <h2>Appointment Request</h2>
+                    </div>
 
 
-            <div>
+                    <div class="request-row">
 
-                <h3>Contact</h3>
+                        <img src="https://randomuser.me/api/portraits/women/48.jpg">
 
-                <p>📍 Healthcare Avenue, India</p>
-                <p>📞 +91 98765 43210</p>
-                <p>✉️ support@medicare.com</p>
+                        <div class="request-name">
+                            <strong>Maria Sarafat</strong>
+                            <small>Cold</small>
+                        </div>
 
-            </div>
+                        <div class="request-actions">
+                            <button class="accept">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
 
-        </div>
+                            <button class="reject">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+
+                            <button class="message">
+                                <i class="fa-solid fa-comment"></i>
+                            </button>
+                        </div>
+
+                    </div>
 
 
-        <div class="copyright">
+                    <div class="request-row">
 
-            <p>
-                © 2026 MediCare Hospital Appointment System.
-                All Rights Reserved.
-            </p>
+                        <img src="https://randomuser.me/api/portraits/men/52.jpg">
 
-        </div>
+                        <div class="request-name">
+                            <strong>Jhon Deo</strong>
+                            <small>Over swtting</small>
+                        </div>
 
-    </footer>
+                        <div class="request-actions">
+                            <button class="accept">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+
+                            <button class="reject">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+
+                            <button class="message">
+                                <i class="fa-solid fa-comment"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <button class="see-all">
+                        See All
+                    </button>
+
+                </div>
 
 
-    <!-- ================= LOGIN MODAL ================= -->
-    <div class="modal"
-         id="loginModal">
+                <!-- Calendar -->
 
-        <div class="modal-content">
+                <div class="card calendar-card">
 
-            <button class="close-button"
-                    onclick="closeLogin()">
-                ×
-            </button>
+                    <div class="calendar-header">
 
-            <h2>Patient Login</h2>
+                        <h2>Calender</h2>
 
-            <p>
-                Login functionality will be connected
-                to the Java backend later.
-            </p>
+                        <strong>December - 2021</strong>
 
-            <input type="email"
-                   placeholder="Email">
+                    </div>
 
-            <input type="password"
-                   placeholder="Password">
+                    <div class="calendar-days">
 
-            <button class="btn btn-primary btn-full"
-                    onclick="loginMessage()">
-                Login
-            </button>
+                        <span>Sa</span>
+                        <span>Su</span>
+                        <span>Mo</span>
+                        <span>Tu</span>
+                        <span>We</span>
+                        <span>Th</span>
+                        <span>Fr</span>
 
-        </div>
+                    </div>
+
+                    <div class="calendar-grid">
+
+                        <span>18</span>
+                        <span>19</span>
+                        <span>20</span>
+                        <span class="selected">21</span>
+                        <span>22</span>
+                        <span>23</span>
+                        <span>24</span>
+
+                        <span>25</span>
+                        <span>26</span>
+                        <span>27</span>
+                        <span>28</span>
+                        <span>29</span>
+                        <span>30</span>
+                        <span>31</span>
+
+                        <span class="muted">01</span>
+                        <span class="muted">02</span>
+                        <span class="muted">03</span>
+                        <span class="muted">04</span>
+                        <span class="muted">05</span>
+                        <span class="muted">06</span>
+                        <span class="muted">07</span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
 
     </div>
 
 
     <!-- JavaScript -->
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
