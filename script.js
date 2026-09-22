@@ -1,182 +1,225 @@
 /* =========================================
-   MOBILE MENU
+   SIDEBAR MENU
 ========================================= */
 
-function toggleMenu() {
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
 
-    const navMenu = document.getElementById("navMenu");
+menuBtn.addEventListener("click", function () {
 
-    navMenu.classList.toggle("active");
-}
+    sidebar.classList.toggle("show");
+
+});
 
 
 /* =========================================
-   SCROLL FUNCTIONS
+   SIDEBAR ACTIVE MENU
 ========================================= */
 
-function scrollToAppointment() {
+const navItems = document.querySelectorAll(".nav-item");
 
-    document.getElementById("appointment")
-        .scrollIntoView({
-            behavior: "smooth"
+navItems.forEach(function (item) {
+
+    item.addEventListener("click", function () {
+
+        navItems.forEach(function (nav) {
+            nav.classList.remove("active");
         });
-}
 
+        item.classList.add("active");
 
-function scrollToDoctors() {
+    });
 
-    document.getElementById("doctors")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-}
+});
 
 
 /* =========================================
-   LOGIN MODAL
+   SEARCH
 ========================================= */
 
-function openLogin() {
+const searchInput = document.getElementById("searchInput");
 
-    const modal = document.getElementById("loginModal");
+searchInput.addEventListener("input", function () {
 
-    modal.classList.add("active");
-}
+    const searchText = searchInput.value.toLowerCase();
 
+    const appointmentRows =
+        document.querySelectorAll(".appointment-row");
 
-function closeLogin() {
+    appointmentRows.forEach(function (row) {
 
-    const modal = document.getElementById("loginModal");
+        const rowText = row.innerText.toLowerCase();
 
-    modal.classList.remove("active");
-}
+        if (rowText.includes(searchText)) {
 
+            row.style.display = "grid";
 
-function loginMessage() {
+        } else {
 
-    alert(
-        "Login system will be connected to the Java backend in the backend development part."
-    );
-}
+            row.style.display = "none";
 
-
-/* =========================================
-   DEPARTMENTS
-========================================= */
-
-function showDepartments() {
-
-    alert(
-        "Departments section will be connected with the hospital database later."
-    );
-}
-
-
-/* =========================================
-   DOCTOR SELECTION
-========================================= */
-
-function selectDoctor(doctorName) {
-
-    const doctorSelect =
-        document.getElementById("doctor");
-
-    doctorSelect.value = doctorName;
-
-    scrollToAppointment();
-}
-
-
-/* =========================================
-   APPOINTMENT FORM
-========================================= */
-
-const appointmentForm =
-    document.getElementById("appointmentForm");
-
-
-appointmentForm.addEventListener(
-    "submit",
-    function(event) {
-
-        event.preventDefault();
-
-        const patientName =
-            document.getElementById("patientName").value.trim();
-
-        const patientEmail =
-            document.getElementById("patientEmail").value.trim();
-
-        const doctor =
-            document.getElementById("doctor").value;
-
-        const date =
-            document.getElementById("date").value;
-
-
-        if (
-            patientName === "" ||
-            patientEmail === "" ||
-            doctor === "" ||
-            date === ""
-        ) {
-
-            alert(
-                "Please fill in all required fields."
-            );
-
-            return;
         }
 
+    });
 
-        alert(
-            "Appointment request received for " +
-            patientName +
-            ".\n\nDoctor: " +
-            doctor +
-            "\nDate: " +
-            date +
-            "\n\nBackend/database connection will be added later."
-        );
-
-
-        appointmentForm.reset();
-    }
-);
+});
 
 
 /* =========================================
-   CLOSE MODAL WHEN CLICKING OUTSIDE
+   ACCEPT / REJECT APPOINTMENT
 ========================================= */
 
-window.addEventListener(
-    "click",
-    function(event) {
+const acceptButtons =
+    document.querySelectorAll(".accept");
 
-        const modal =
-            document.getElementById("loginModal");
+const rejectButtons =
+    document.querySelectorAll(".reject");
 
-        if (event.target === modal) {
 
-            closeLogin();
+acceptButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        const request =
+            button.closest(".request-row");
+
+        alert("Appointment request accepted.");
+
+        request.style.opacity = "0.5";
+
+        button.disabled = true;
+
+    });
+
+});
+
+
+rejectButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        const request =
+            button.closest(".request-row");
+
+        alert("Appointment request rejected.");
+
+        request.style.display = "none";
+
+    });
+
+});
+
+
+/* =========================================
+   NOTIFICATION
+========================================= */
+
+const notification =
+    document.querySelector(".notification-btn");
+
+notification.addEventListener("click", function () {
+
+    alert("You have 3 new notifications.");
+
+});
+
+
+/* =========================================
+   MESSAGES
+========================================= */
+
+const messageButton =
+    document.querySelector(".icon-btn");
+
+messageButton.addEventListener("click", function () {
+
+    alert("No new messages.");
+
+});
+
+
+/* =========================================
+   PATIENT ACTION BUTTONS
+========================================= */
+
+const patientButtons =
+    document.querySelectorAll(".patient-buttons button");
+
+patientButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        const action = button.innerText.trim();
+
+        alert(action + " clicked.");
+
+    });
+
+});
+
+
+/* =========================================
+   SEE ALL
+========================================= */
+
+const seeAllButtons =
+    document.querySelectorAll(".see-all");
+
+seeAllButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        alert("More records will be available here.");
+
+    });
+
+});
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+const logoutBtn =
+    document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener("click", function (event) {
+
+    event.preventDefault();
+
+    const confirmLogout =
+        confirm("Are you sure you want to logout?");
+
+    if (confirmLogout) {
+
+        alert("Logout system will be connected with Java backend later.");
+
+    }
+
+});
+
+
+/* =========================================
+   CALENDAR
+========================================= */
+
+const calendarDates =
+    document.querySelectorAll(".calendar-grid span");
+
+calendarDates.forEach(function (date) {
+
+    date.addEventListener("click", function () {
+
+        if (!date.classList.contains("muted")) {
+
+            calendarDates.forEach(function (item) {
+                item.classList.remove("selected");
+            });
+
+            date.classList.add("selected");
+
         }
-    }
-);
 
+    });
 
-/* =========================================
-   SET MINIMUM APPOINTMENT DATE
-========================================= */
-
-const dateInput =
-    document.getElementById("date");
-
-
-const today =
-    new Date().toISOString().split("T")[0];
-
-
-dateInput.setAttribute(
-    "min",
-    today
-);
+});
