@@ -1,63 +1,39 @@
-/* =========================================
-   SIDEBAR MENU
-========================================= */
+// ==========================================
+// MediCare Doctor Dashboard - JavaScript
+// ==========================================
 
-const menuBtn = document.getElementById("menuBtn");
+
+// ---------- SIDEBAR MENU ----------
+
 const sidebar = document.getElementById("sidebar");
+const menuBtn = document.getElementById("menuBtn");
 
-menuBtn.addEventListener("click", function () {
+if (menuBtn) {
+    menuBtn.addEventListener("click", function () {
+        sidebar.classList.toggle("open");
+    });
+}
 
-    sidebar.classList.toggle("show");
 
-});
+// ---------- NAVIGATION ----------
 
+const navLinks = document.querySelectorAll(".nav-link");
 
-/* =========================================
-   SIDEBAR ACTIVE MENU
-========================================= */
+navLinks.forEach(function (link) {
 
-const navItems = document.querySelectorAll(".nav-item");
+    link.addEventListener("click", function () {
 
-navItems.forEach(function (item) {
-
-    item.addEventListener("click", function () {
-
-        navItems.forEach(function (nav) {
-            nav.classList.remove("active");
+        // Remove active class from all links
+        navLinks.forEach(function (item) {
+            item.classList.remove("active");
         });
 
-        item.classList.add("active");
+        // Add active class to clicked link
+        link.classList.add("active");
 
-    });
-
-});
-
-
-/* =========================================
-   SEARCH
-========================================= */
-
-const searchInput = document.getElementById("searchInput");
-
-searchInput.addEventListener("input", function () {
-
-    const searchText = searchInput.value.toLowerCase();
-
-    const appointmentRows =
-        document.querySelectorAll(".appointment-row");
-
-    appointmentRows.forEach(function (row) {
-
-        const rowText = row.innerText.toLowerCase();
-
-        if (rowText.includes(searchText)) {
-
-            row.style.display = "grid";
-
-        } else {
-
-            row.style.display = "none";
-
+        // Close mobile sidebar
+        if (window.innerWidth <= 950) {
+            sidebar.classList.remove("open");
         }
 
     });
@@ -65,16 +41,100 @@ searchInput.addEventListener("input", function () {
 });
 
 
-/* =========================================
-   ACCEPT / REJECT APPOINTMENT
-========================================= */
+// ---------- SEARCH ----------
+
+const searchBox = document.getElementById("search");
+
+if (searchBox) {
+
+    searchBox.addEventListener("input", function () {
+
+        const searchText = searchBox.value.toLowerCase();
+
+        const patients = document.querySelectorAll(".patient-row");
+
+        patients.forEach(function (patient) {
+
+            const patientText =
+                patient.innerText.toLowerCase();
+
+            if (patientText.includes(searchText)) {
+
+                patient.style.display = "grid";
+
+            } else {
+
+                patient.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+}
+
+
+// ---------- MESSAGE BUTTON ----------
+
+const messageBtn = document.getElementById("messageBtn");
+
+if (messageBtn) {
+
+    messageBtn.addEventListener("click", function () {
+
+        alert("You have no new messages.");
+
+    });
+
+}
+
+
+// ---------- NOTIFICATION BUTTON ----------
+
+const bellBtn = document.getElementById("bellBtn");
+
+if (bellBtn) {
+
+    bellBtn.addEventListener("click", function () {
+
+        alert("You have 3 new notifications.");
+
+    });
+
+}
+
+
+// ---------- LOGOUT ----------
+
+const logoutBtn = document.getElementById("logout");
+
+if (logoutBtn) {
+
+    logoutBtn.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        const confirmLogout =
+            confirm("Are you sure you want to logout?");
+
+        if (confirmLogout) {
+
+            alert(
+                "Logout functionality will be connected to the Java backend later."
+            );
+
+        }
+
+    });
+
+}
+
+
+// ---------- APPOINTMENT REQUEST - ACCEPT ----------
 
 const acceptButtons =
-    document.querySelectorAll(".accept");
-
-const rejectButtons =
-    document.querySelectorAll(".reject");
-
+    document.querySelectorAll(".request-buttons .ok");
 
 acceptButtons.forEach(function (button) {
 
@@ -83,16 +143,25 @@ acceptButtons.forEach(function (button) {
         const request =
             button.closest(".request-row");
 
-        alert("Appointment request accepted.");
+        if (request) {
 
-        request.style.opacity = "0.5";
+            request.style.opacity = "0.45";
 
-        button.disabled = true;
+            button.disabled = true;
+
+            alert("Appointment accepted successfully.");
+
+        }
 
     });
 
 });
 
+
+// ---------- APPOINTMENT REQUEST - REJECT ----------
+
+const rejectButtons =
+    document.querySelectorAll(".request-buttons .no");
 
 rejectButtons.forEach(function (button) {
 
@@ -101,125 +170,49 @@ rejectButtons.forEach(function (button) {
         const request =
             button.closest(".request-row");
 
-        alert("Appointment request rejected.");
+        if (request) {
 
-        request.style.display = "none";
+            request.remove();
 
-    });
+            alert("Appointment rejected.");
 
-});
-
-
-/* =========================================
-   NOTIFICATION
-========================================= */
-
-const notification =
-    document.querySelector(".notification-btn");
-
-notification.addEventListener("click", function () {
-
-    alert("You have 3 new notifications.");
-
-});
-
-
-/* =========================================
-   MESSAGES
-========================================= */
-
-const messageButton =
-    document.querySelector(".icon-btn");
-
-messageButton.addEventListener("click", function () {
-
-    alert("No new messages.");
-
-});
-
-
-/* =========================================
-   PATIENT ACTION BUTTONS
-========================================= */
-
-const patientButtons =
-    document.querySelectorAll(".patient-buttons button");
-
-patientButtons.forEach(function (button) {
-
-    button.addEventListener("click", function () {
-
-        const action = button.innerText.trim();
-
-        alert(action + " clicked.");
+        }
 
     });
 
 });
 
 
-/* =========================================
-   SEE ALL
-========================================= */
-
-const seeAllButtons =
-    document.querySelectorAll(".see-all");
-
-seeAllButtons.forEach(function (button) {
-
-    button.addEventListener("click", function () {
-
-        alert("More records will be available here.");
-
-    });
-
-});
-
-
-/* =========================================
-   LOGOUT
-========================================= */
-
-const logoutBtn =
-    document.getElementById("logoutBtn");
-
-logoutBtn.addEventListener("click", function (event) {
-
-    event.preventDefault();
-
-    const confirmLogout =
-        confirm("Are you sure you want to logout?");
-
-    if (confirmLogout) {
-
-        alert("Logout system will be connected with Java backend later.");
-
-    }
-
-});
-
-
-/* =========================================
-   CALENDAR
-========================================= */
+// ---------- CALENDAR ----------
 
 const calendarDates =
-    document.querySelectorAll(".calendar-grid span");
+    document.querySelectorAll(".dates span:not(.muted)");
 
 calendarDates.forEach(function (date) {
 
     date.addEventListener("click", function () {
 
-        if (!date.classList.contains("muted")) {
+        // Remove selected date
+        calendarDates.forEach(function (item) {
 
-            calendarDates.forEach(function (item) {
-                item.classList.remove("selected");
-            });
+            item.classList.remove("selected");
 
-            date.classList.add("selected");
+        });
 
-        }
+        // Select clicked date
+        date.classList.add("selected");
 
     });
+
+});
+
+
+// ---------- PAGE LOAD ----------
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    console.log(
+        "MediCare Doctor Dashboard loaded successfully."
+    );
 
 });
