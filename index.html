@@ -8,10 +8,7 @@
           content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Online Hospital Appointment System - Book appointments with doctors quickly and securely.">
-
-    <meta name="author"
-          content="Hospital Appointment System">
+          content="Professional Online Hospital Appointment System">
 
     <title>Hospital Appointment System</title>
 
@@ -21,438 +18,388 @@
 
 <body>
 
-    <!-- =========================
-         BACKGROUND HOSPITAL SIGNS
-    ========================== -->
-    <div class="medical-background" aria-hidden="true">
-        <span class="medical-cross cross-1"></span>
-        <span class="medical-cross cross-2"></span>
-        <span class="medical-cross cross-3"></span>
-        <span class="medical-cross cross-4"></span>
-        <span class="medical-cross cross-5"></span>
-        <span class="medical-cross cross-6"></span>
-        <span class="medical-cross cross-7"></span>
-        <span class="medical-cross cross-8"></span>
-    </div>
+    <!-- ================= HEADER ================= -->
+    <header class="header">
 
+        <div class="container navbar">
 
-    <!-- =========================
-             NAVIGATION BAR
-    ========================== -->
-    <header class="main-header">
+            <div class="logo">
+                <div class="logo-icon">+</div>
 
-        <nav class="navbar">
-
-            <div class="hospital-logo">
-                <div class="logo-cross"></div>
-
-                <div class="logo-text">
-                    <h1>HealthCare</h1>
-                    <span>Hospital & Medical Center</span>
+                <div>
+                    <h2>MediCare</h2>
+                    <span>Hospital & Healthcare</span>
                 </div>
             </div>
 
+            <nav class="nav-menu" id="navMenu">
 
-            <ul class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#doctors">Doctors</a>
+                <a href="#appointment">Appointment</a>
+                <a href="#contact">Contact</a>
 
-                <li>
-                    <a href="#home">Home</a>
-                </li>
+            </nav>
 
-                <li>
-                    <a href="#services">Services</a>
-                </li>
+            <div class="nav-buttons">
 
-                <li>
-                    <a href="#doctors">Doctors</a>
-                </li>
-
-                <li>
-                    <a href="#about">About</a>
-                </li>
-
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-
-            </ul>
-
-
-            <div class="nav-actions">
-
-                <button class="login-btn"
-                        type="button"
+                <button class="btn btn-outline"
                         onclick="openLogin()">
                     Login
                 </button>
 
-                <button class="appointment-btn"
-                        type="button"
-                        onclick="openAppointment()">
+                <button class="btn btn-primary"
+                        onclick="scrollToAppointment()">
                     Book Appointment
                 </button>
 
             </div>
 
-        </nav>
+            <button class="menu-toggle"
+                    onclick="toggleMenu()">
+                ☰
+            </button>
+
+        </div>
 
     </header>
 
 
-    <!-- =========================
-                 MAIN
-    ========================== -->
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home">
 
-    <main>
+        <div class="hero-overlay"></div>
 
-        <!-- HERO SECTION -->
+        <div class="container hero-content">
 
-        <section id="home" class="hero-section">
+            <div class="hero-text">
 
-            <div class="hero-content">
-
-                <span class="hero-badge">
-                    ● Trusted Healthcare Service
+                <span class="badge">
+                    🏥 Trusted Healthcare Platform
                 </span>
 
-                <h2>
+                <h1>
                     Your Health,
                     <span>Our Priority.</span>
-                </h2>
+                </h1>
 
                 <p>
-                    Book appointments with qualified doctors
-                    quickly and conveniently from anywhere.
+                    Find the right doctor, choose a convenient time,
+                    and book your hospital appointment quickly and easily.
                 </p>
-
 
                 <div class="hero-buttons">
 
-                    <button class="primary-btn"
-                            type="button"
-                            onclick="openAppointment()">
+                    <button class="btn btn-primary btn-large"
+                            onclick="scrollToAppointment()">
+                        📅 Book Appointment
+                    </button>
+
+                    <button class="btn btn-light btn-large"
+                            onclick="scrollToDoctors()">
+                        👨‍⚕️ Find a Doctor
+                    </button>
+
+                </div>
+
+                <div class="hero-stats">
+
+                    <div>
+                        <strong>50+</strong>
+                        <span>Doctors</span>
+                    </div>
+
+                    <div>
+                        <strong>15+</strong>
+                        <span>Departments</span>
+                    </div>
+
+                    <div>
+                        <strong>24/7</strong>
+                        <span>Support</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= QUICK SERVICES ================= -->
+    <section class="quick-section">
+
+        <div class="container quick-grid">
+
+            <div class="quick-card">
+                <div class="quick-icon">👨‍⚕️</div>
+                <div>
+                    <h3>Find Doctors</h3>
+                    <p>Search qualified doctors</p>
+                </div>
+            </div>
+
+            <div class="quick-card">
+                <div class="quick-icon">📅</div>
+                <div>
+                    <h3>Book Appointment</h3>
+                    <p>Choose your convenient time</p>
+                </div>
+            </div>
+
+            <div class="quick-card">
+                <div class="quick-icon">🏥</div>
+                <div>
+                    <h3>Departments</h3>
+                    <p>Explore medical departments</p>
+                </div>
+            </div>
+
+            <div class="quick-card">
+                <div class="quick-icon">🚑</div>
+                <div>
+                    <h3>Emergency</h3>
+                    <p>24/7 emergency assistance</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+    <section class="section" id="services">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    OUR SERVICES
+                </span>
+
+                <h2>Healthcare Made Simple</h2>
+
+                <p>
+                    Everything you need to manage your healthcare
+                    appointment in one place.
+                </p>
+
+            </div>
+
+
+            <div class="service-grid">
+
+                <div class="service-card">
+
+                    <div class="service-icon">📅</div>
+
+                    <h3>Online Appointment</h3>
+
+                    <p>
+                        Book appointments with doctors
+                        without waiting in long queues.
+                    </p>
+
+                    <button onclick="scrollToAppointment()">
+                        Book Now →
+                    </button>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">👨‍⚕️</div>
+
+                    <h3>Find a Doctor</h3>
+
+                    <p>
+                        Explore doctors according to
+                        department and specialization.
+                    </p>
+
+                    <button onclick="scrollToDoctors()">
+                        View Doctors →
+                    </button>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">🏥</div>
+
+                    <h3>Medical Departments</h3>
+
+                    <p>
+                        Access different healthcare
+                        departments and specialties.
+                    </p>
+
+                    <button onclick="showDepartments()">
+                        Explore →
+                    </button>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">📋</div>
+
+                    <h3>Patient Records</h3>
+
+                    <p>
+                        Keep track of appointments and
+                        important healthcare information.
+                    </p>
+
+                    <button onclick="openLogin()">
+                        Patient Login →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DOCTORS ================= -->
+    <section class="section doctors-section"
+             id="doctors">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    OUR SPECIALISTS
+                </span>
+
+                <h2>Meet Our Doctors</h2>
+
+                <p>
+                    Experienced healthcare professionals
+                    dedicated to patient care.
+                </p>
+
+            </div>
+
+
+            <div class="doctor-grid">
+
+                <div class="doctor-card">
+
+                    <div class="doctor-avatar">
+                        👨‍⚕️
+                    </div>
+
+                    <h3>Dr. Rahul Sharma</h3>
+
+                    <span>Cardiologist</span>
+
+                    <p>10+ Years Experience</p>
+
+                    <button class="btn btn-primary"
+                            onclick="selectDoctor('Dr. Rahul Sharma')">
                         Book Appointment
                     </button>
 
-                    <button class="secondary-btn"
-                            type="button"
-                            onclick="scrollToDoctors()">
-                        Find a Doctor
+                </div>
+
+
+                <div class="doctor-card">
+
+                    <div class="doctor-avatar">
+                        👩‍⚕️
+                    </div>
+
+                    <h3>Dr. Priya Singh</h3>
+
+                    <span>General Physician</span>
+
+                    <p>8+ Years Experience</p>
+
+                    <button class="btn btn-primary"
+                            onclick="selectDoctor('Dr. Priya Singh')">
+                        Book Appointment
                     </button>
 
                 </div>
 
 
-                <!-- TRUST INFORMATION -->
+                <div class="doctor-card">
 
-                <div class="trust-info">
-
-                    <div class="trust-item">
-                        <strong>24/7</strong>
-                        <span>Emergency Support</span>
+                    <div class="doctor-avatar">
+                        👨‍⚕️
                     </div>
 
-                    <div class="trust-item">
-                        <strong>50+</strong>
-                        <span>Specialist Doctors</span>
-                    </div>
+                    <h3>Dr. Arjun Mehta</h3>
 
-                    <div class="trust-item">
-                        <strong>10K+</strong>
-                        <span>Happy Patients</span>
-                    </div>
+                    <span>Neurologist</span>
 
-                </div>
+                    <p>12+ Years Experience</p>
 
-            </div>
-
-
-            <!-- HERO MEDICAL CARD -->
-
-            <div class="hero-card">
-
-                <div class="medical-card-icon">
-                    
-                </div>
-
-                <h3>Healthcare at Your Fingertips</h3>
-
-                <p>
-                    Find the right doctor and schedule your
-                    appointment in just a few clicks.
-                </p>
-
-
-                <div class="quick-search">
-
-                    <label for="doctorSearch">
-                        Search Doctor
-                    </label>
-
-                    <input
-                        type="text"
-                        id="doctorSearch"
-                        placeholder="Enter doctor or specialty"
-                    >
-
-                    <button type="button"
-                            onclick="searchDoctor()">
-                        Search
+                    <button class="btn btn-primary"
+                            onclick="selectDoctor('Dr. Arjun Mehta')">
+                        Book Appointment
                     </button>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
+
+    </section>
 
 
-        <!-- =========================
-              SERVICES SECTION
-        ========================== -->
+    <!-- ================= APPOINTMENT ================= -->
+    <section class="appointment-section"
+             id="appointment">
 
-        <section id="services" class="services-section">
+        <div class="container">
 
-            <div class="section-heading">
+            <div class="appointment-box">
 
-                <span>OUR SERVICES</span>
+                <div class="appointment-info">
 
-                <h2>
-                    Complete Healthcare Solutions
-                </h2>
+                    <span class="section-label">
+                        APPOINTMENT
+                    </span>
 
-                <p>
-                    Access essential healthcare services
-                    through our appointment platform.
-                </p>
-
-            </div>
-
-
-            <div class="services-container">
-
-                <article class="service-card">
-
-                    <div class="service-icon">
-                        
-                    </div>
-
-                    <h3>Doctor Appointment</h3>
+                    <h2>Book Your Appointment</h2>
 
                     <p>
-                        Schedule an appointment with
-                        experienced doctors.
+                        Fill in your details and choose your
+                        preferred doctor and appointment date.
                     </p>
 
-                    <a href="#appointment">
-                        Book Now →
-                    </a>
-
-                </article>
-
-
-                <article class="service-card">
-
-                    <div class="service-icon">
-                        
+                    <div class="appointment-feature">
+                        ✓ Easy online booking
                     </div>
 
-                    <h3>Emergency Care</h3>
-
-                    <p>
-                        Get quick access to emergency
-                        healthcare information.
-                    </p>
-
-                    <a href="#emergency">
-                        Learn More →
-                    </a>
-
-                </article>
-
-
-                <article class="service-card">
-
-                    <div class="service-icon">
-                        
+                    <div class="appointment-feature">
+                        ✓ Choose your preferred doctor
                     </div>
 
-                    <h3>Medical Consultation</h3>
-
-                    <p>
-                        Connect with doctors for
-                        professional consultation.
-                    </p>
-
-                    <a href="#consultation">
-                        Consult Now →
-                    </a>
-
-                </article>
-
-
-                <article class="service-card">
-
-                    <div class="service-icon">
-                        
+                    <div class="appointment-feature">
+                        ✓ Convenient appointment timing
                     </div>
-
-                    <h3>Health Checkup</h3>
-
-                    <p>
-                        Explore health checkup and
-                        diagnostic services.
-                    </p>
-
-                    <a href="#checkup">
-                        View Services →
-                    </a>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-               DOCTORS SECTION
-        ========================== -->
-
-        <section id="doctors" class="doctors-section">
-
-            <div class="section-heading">
-
-                <span>OUR SPECIALISTS</span>
-
-                <h2>
-                    Meet Our Doctors
-                </h2>
-
-                <p>
-                    Choose a specialist according to
-                    your healthcare needs.
-                </p>
-
-            </div>
-
-
-            <div class="doctor-container">
-
-                <article class="doctor-card">
-
-                    <div class="doctor-image">
-                        <span>DR</span>
-                    </div>
-
-                    <div class="doctor-info">
-
-                        <h3>Dr. Rahul Sharma</h3>
-
-                        <p>Cardiologist</p>
-
-                        <span class="experience">
-                            12+ Years Experience
-                        </span>
-
-                        <button
-                            type="button"
-                            onclick="bookDoctor('Dr. Rahul Sharma')">
-                            Book Appointment
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-                <article class="doctor-card">
-
-                    <div class="doctor-image">
-                        <span>DR</span>
-                    </div>
-
-                    <div class="doctor-info">
-
-                        <h3>Dr. Priya Singh</h3>
-
-                        <p>General Physician</p>
-
-                        <span class="experience">
-                            10+ Years Experience
-                        </span>
-
-                        <button
-                            type="button"
-                            onclick="bookDoctor('Dr. Priya Singh')">
-                            Book Appointment
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-                <article class="doctor-card">
-
-                    <div class="doctor-image">
-                        <span>DR</span>
-                    </div>
-
-                    <div class="doctor-info">
-
-                        <h3>Dr. Aman Verma</h3>
-
-                        <p>Neurologist</p>
-
-                        <span class="experience">
-                            15+ Years Experience
-                        </span>
-
-                        <button
-                            type="button"
-                            onclick="bookDoctor('Dr. Aman Verma')">
-                            Book Appointment
-                        </button>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             APPOINTMENT SECTION
-        ========================== -->
-
-        <section id="appointment"
-                 class="appointment-section">
-
-            <div class="appointment-content">
-
-                <div class="appointment-text">
-
-                    <span>ONLINE APPOINTMENT</span>
-
-                    <h2>
-                        Schedule Your Appointment
-                    </h2>
-
-                    <p>
-                        Select your preferred doctor,
-                        date and time to request an
-                        appointment.
-                    </p>
 
                 </div>
 
 
-                <form id="appointmentForm"
-                      class="appointment-form"
-                      onsubmit="submitAppointment(event)">
+                <form class="appointment-form"
+                      id="appointmentForm">
 
                     <div class="form-group">
 
@@ -460,13 +407,10 @@
                             Patient Name
                         </label>
 
-                        <input
-                            type="text"
-                            id="patientName"
-                            name="patientName"
-                            placeholder="Enter patient name"
-                            required
-                        >
+                        <input type="text"
+                               id="patientName"
+                               placeholder="Enter your name"
+                               required>
 
                     </div>
 
@@ -474,47 +418,13 @@
                     <div class="form-group">
 
                         <label for="patientEmail">
-                            Email Address
+                            Email
                         </label>
 
-                        <input
-                            type="email"
-                            id="patientEmail"
-                            name="patientEmail"
-                            placeholder="Enter email"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="doctor">
-                            Select Doctor
-                        </label>
-
-                        <select id="doctor"
-                                name="doctor"
-                                required>
-
-                            <option value="">
-                                Choose Doctor
-                            </option>
-
-                            <option value="rahul">
-                                Dr. Rahul Sharma - Cardiologist
-                            </option>
-
-                            <option value="priya">
-                                Dr. Priya Singh - General Physician
-                            </option>
-
-                            <option value="aman">
-                                Dr. Aman Verma - Neurologist
-                            </option>
-
-                        </select>
+                        <input type="email"
+                               id="patientEmail"
+                               placeholder="Enter your email"
+                               required>
 
                     </div>
 
@@ -523,32 +433,42 @@
 
                         <div class="form-group">
 
-                            <label for="appointmentDate">
-                                Appointment Date
+                            <label for="doctor">
+                                Doctor
                             </label>
 
-                            <input
-                                type="date"
-                                id="appointmentDate"
-                                name="appointmentDate"
-                                required
-                            >
+                            <select id="doctor" required>
+
+                                <option value="">
+                                    Select Doctor
+                                </option>
+
+                                <option>
+                                    Dr. Rahul Sharma
+                                </option>
+
+                                <option>
+                                    Dr. Priya Singh
+                                </option>
+
+                                <option>
+                                    Dr. Arjun Mehta
+                                </option>
+
+                            </select>
 
                         </div>
 
 
                         <div class="form-group">
 
-                            <label for="appointmentTime">
-                                Appointment Time
+                            <label for="date">
+                                Date
                             </label>
 
-                            <input
-                                type="time"
-                                id="appointmentTime"
-                                name="appointmentTime"
-                                required
-                            >
+                            <input type="date"
+                                   id="date"
+                                   required>
 
                         </div>
 
@@ -558,22 +478,18 @@
                     <div class="form-group">
 
                         <label for="message">
-                            Additional Information
+                            Additional Message
                         </label>
 
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows="4"
-                            placeholder="Describe your concern..."
-                        ></textarea>
+                        <textarea id="message"
+                                  rows="3"
+                                  placeholder="Tell us anything important..."></textarea>
 
                     </div>
 
 
-                    <button
-                        type="submit"
-                        class="submit-btn">
+                    <button type="submit"
+                            class="btn btn-primary btn-full">
                         Confirm Appointment
                     </button>
 
@@ -581,79 +497,38 @@
 
             </div>
 
-        </section>
+        </div>
+
+    </section>
 
 
-        <!-- =========================
-                ABOUT SECTION
-        ========================== -->
+    <!-- ================= FOOTER ================= -->
+    <footer id="contact">
 
-        <section id="about" class="about-section">
+        <div class="container footer-grid">
 
-            <div class="about-content">
+            <div>
 
-                <span>ABOUT US</span>
+                <div class="logo footer-logo">
 
-                <h2>
-                    Modern Healthcare,
-                    Designed Around You
-                </h2>
-
-                <p>
-                    Our Hospital Appointment System is
-                    designed to make healthcare access
-                    simpler, faster and more organized.
-                </p>
-
-                <div class="about-features">
+                    <div class="logo-icon">+</div>
 
                     <div>
-                        ✓ Easy Appointment Booking
-                    </div>
-
-                    <div>
-                        ✓ Qualified Doctors
-                    </div>
-
-                    <div>
-                        ✓ Organized Patient Management
-                    </div>
-
-                    <div>
-                        ✓ Secure Healthcare Platform
+                        <h2>MediCare</h2>
+                        <span>Hospital & Healthcare</span>
                     </div>
 
                 </div>
 
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-                FOOTER
-    ========================== -->
-
-    <footer id="contact" class="main-footer">
-
-        <div class="footer-content">
-
-            <div class="footer-brand">
-
-                <h2>
-                    <span>+</span> HealthCare
-                </h2>
-
                 <p>
-                    Your Health, Our Priority.
+                    Providing simple and accessible
+                    healthcare appointment services.
                 </p>
 
             </div>
 
 
-            <div class="footer-column">
+            <div>
 
                 <h3>Quick Links</h3>
 
@@ -665,23 +540,23 @@
             </div>
 
 
-            <div class="footer-column">
+            <div>
 
                 <h3>Contact</h3>
 
+                <p>📍 Healthcare Avenue, India</p>
                 <p>📞 +91 98765 43210</p>
-                <p>✉️ support@healthcare.com</p>
-                <p>📍 Punjab, India</p>
+                <p>✉️ support@medicare.com</p>
 
             </div>
 
         </div>
 
 
-        <div class="footer-bottom">
+        <div class="copyright">
 
             <p>
-                © 2026 HealthCare Hospital.
+                © 2026 MediCare Hospital Appointment System.
                 All Rights Reserved.
             </p>
 
@@ -690,10 +565,41 @@
     </footer>
 
 
-    <!-- =========================
-                JAVASCRIPT
-    ========================== -->
+    <!-- ================= LOGIN MODAL ================= -->
+    <div class="modal"
+         id="loginModal">
 
+        <div class="modal-content">
+
+            <button class="close-button"
+                    onclick="closeLogin()">
+                ×
+            </button>
+
+            <h2>Patient Login</h2>
+
+            <p>
+                Login functionality will be connected
+                to the Java backend later.
+            </p>
+
+            <input type="email"
+                   placeholder="Email">
+
+            <input type="password"
+                   placeholder="Password">
+
+            <button class="btn btn-primary btn-full"
+                    onclick="loginMessage()">
+                Login
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
     <script src="js/script.js"></script>
 
 </body>
