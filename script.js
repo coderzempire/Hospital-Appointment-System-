@@ -1,374 +1,182 @@
-/* =========================================================
-   HOSPITAL APPOINTMENT SYSTEM
-   PROFESSIONAL JAVASCRIPT
-   ========================================================= */
+/* =========================================
+   MOBILE MENU
+========================================= */
 
+function toggleMenu() {
 
-/* =========================================================
-   1. OPEN APPOINTMENT SECTION
-   ========================================================= */
+    const navMenu = document.getElementById("navMenu");
 
-function openAppointment() {
-
-    const appointmentSection =
-        document.getElementById("appointment");
-
-    if (appointmentSection) {
-
-        appointmentSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-        // Patient name field par focus
-        setTimeout(function () {
-
-            const patientName =
-                document.getElementById("patientName");
-
-            if (patientName) {
-                patientName.focus();
-            }
-
-        }, 700);
-    }
+    navMenu.classList.toggle("active");
 }
 
 
-/* =========================================================
-   2. SCROLL TO DOCTORS
-   ========================================================= */
+/* =========================================
+   SCROLL FUNCTIONS
+========================================= */
+
+function scrollToAppointment() {
+
+    document.getElementById("appointment")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+}
+
 
 function scrollToDoctors() {
 
-    const doctorsSection =
-        document.getElementById("doctors");
-
-    if (doctorsSection) {
-
-        doctorsSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
+    document.getElementById("doctors")
+        .scrollIntoView({
+            behavior: "smooth"
         });
-    }
 }
 
 
-/* =========================================================
-   3. LOGIN
-   ========================================================= */
+/* =========================================
+   LOGIN MODAL
+========================================= */
 
 function openLogin() {
 
+    const modal = document.getElementById("loginModal");
+
+    modal.classList.add("active");
+}
+
+
+function closeLogin() {
+
+    const modal = document.getElementById("loginModal");
+
+    modal.classList.remove("active");
+}
+
+
+function loginMessage() {
+
     alert(
-        "Login system will be connected with the backend soon."
+        "Login system will be connected to the Java backend in the backend development part."
     );
 }
 
 
-/* =========================================================
-   4. SEARCH DOCTOR
-   ========================================================= */
+/* =========================================
+   DEPARTMENTS
+========================================= */
 
-function searchDoctor() {
+function showDepartments() {
 
-    const searchInput =
-        document.getElementById("doctorSearch");
-
-    if (!searchInput) {
-        return;
-    }
-
-    const searchValue =
-        searchInput.value.trim().toLowerCase();
-
-
-    if (searchValue === "") {
-
-        alert(
-            "Please enter a doctor name or medical specialty."
-        );
-
-        searchInput.focus();
-
-        return;
-    }
-
-
-    const doctors =
-        document.querySelectorAll(".doctor-card");
-
-    let doctorFound = false;
-
-
-    doctors.forEach(function (doctor) {
-
-        const doctorText =
-            doctor.innerText.toLowerCase();
-
-        if (doctorText.includes(searchValue)) {
-
-            doctorFound = true;
-
-            doctor.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-
-            doctor.style.transform =
-                "translateY(-12px)";
-
-            doctor.style.boxShadow =
-                "0 25px 50px rgba(13, 156, 148, 0.25)";
-
-
-            setTimeout(function () {
-
-                doctor.style.transform = "";
-                doctor.style.boxShadow = "";
-
-            }, 1800);
-        }
-
-    });
-
-
-    if (!doctorFound) {
-
-        alert(
-            "No matching doctor found. Please try another name or specialty."
-        );
-    }
+    alert(
+        "Departments section will be connected with the hospital database later."
+    );
 }
 
 
-/* =========================================================
-   5. BOOK SPECIFIC DOCTOR
-   ========================================================= */
+/* =========================================
+   DOCTOR SELECTION
+========================================= */
 
-function bookDoctor(doctorName) {
+function selectDoctor(doctorName) {
 
     const doctorSelect =
         document.getElementById("doctor");
 
+    doctorSelect.value = doctorName;
 
-    if (doctorSelect) {
-
-        let optionFound = false;
-
-
-        for (let i = 0; i < doctorSelect.options.length; i++) {
-
-            const optionText =
-                doctorSelect.options[i].text.toLowerCase();
-
-
-            if (
-                optionText.includes(
-                    doctorName.toLowerCase()
-                )
-            ) {
-
-                doctorSelect.selectedIndex = i;
-
-                optionFound = true;
-
-                break;
-            }
-        }
-
-
-        if (!optionFound) {
-
-            doctorSelect.value = "";
-
-        }
-    }
-
-
-    // Appointment section par le jao
-    openAppointment();
+    scrollToAppointment();
 }
 
 
-/* =========================================================
-   6. APPOINTMENT FORM SUBMISSION
-   ========================================================= */
+/* =========================================
+   APPOINTMENT FORM
+========================================= */
 
-function submitAppointment(event) {
-
-    event.preventDefault();
-
-
-    const patientName =
-        document.getElementById("patientName").value.trim();
-
-    const patientEmail =
-        document.getElementById("patientEmail").value.trim();
-
-    const doctor =
-        document.getElementById("doctor").value;
-
-    const appointmentDate =
-        document.getElementById("appointmentDate").value;
-
-    const appointmentTime =
-        document.getElementById("appointmentTime").value;
-
-    const message =
-        document.getElementById("message").value.trim();
+const appointmentForm =
+    document.getElementById("appointmentForm");
 
 
-    /* -----------------------------------------
-       BASIC VALIDATION
-    ----------------------------------------- */
+appointmentForm.addEventListener(
+    "submit",
+    function(event) {
 
-    if (patientName === "") {
+        event.preventDefault();
 
-        alert("Please enter patient name.");
+        const patientName =
+            document.getElementById("patientName").value.trim();
 
-        return;
-    }
+        const patientEmail =
+            document.getElementById("patientEmail").value.trim();
 
+        const doctor =
+            document.getElementById("doctor").value;
 
-    if (patientEmail === "") {
-
-        alert("Please enter email address.");
-
-        return;
-    }
-
-
-    if (doctor === "") {
-
-        alert("Please select a doctor.");
-
-        return;
-    }
+        const date =
+            document.getElementById("date").value;
 
 
-    if (appointmentDate === "") {
+        if (
+            patientName === "" ||
+            patientEmail === "" ||
+            doctor === "" ||
+            date === ""
+        ) {
 
-        alert("Please select appointment date.");
+            alert(
+                "Please fill in all required fields."
+            );
 
-        return;
-    }
+            return;
+        }
 
-
-    if (appointmentTime === "") {
-
-        alert("Please select appointment time.");
-
-        return;
-    }
-
-
-    /* -----------------------------------------
-       DATE VALIDATION
-    ----------------------------------------- */
-
-    const selectedDate =
-        new Date(appointmentDate);
-
-    const today =
-        new Date();
-
-    today.setHours(0, 0, 0, 0);
-
-
-    if (selectedDate < today) {
 
         alert(
-            "Please select today or a future date."
+            "Appointment request received for " +
+            patientName +
+            ".\n\nDoctor: " +
+            doctor +
+            "\nDate: " +
+            date +
+            "\n\nBackend/database connection will be added later."
         );
 
-        return;
-    }
-
-
-    /* -----------------------------------------
-       SUCCESS MESSAGE
-    ----------------------------------------- */
-
-    alert(
-        "Appointment request submitted successfully!\n\n" +
-        "Patient: " + patientName + "\n" +
-        "Email: " + patientEmail + "\n" +
-        "Appointment Date: " + appointmentDate + "\n" +
-        "Appointment Time: " + appointmentTime
-    );
-
-
-    /* -----------------------------------------
-       RESET FORM
-    ----------------------------------------- */
-
-    const appointmentForm =
-        document.getElementById("appointmentForm");
-
-    if (appointmentForm) {
 
         appointmentForm.reset();
-
     }
-}
+);
 
 
-/* =========================================================
-   7. SET MINIMUM APPOINTMENT DATE
-   ========================================================= */
+/* =========================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+========================================= */
 
-function setMinimumDate() {
+window.addEventListener(
+    "click",
+    function(event) {
 
-    const dateInput =
-        document.getElementById("appointmentDate");
+        const modal =
+            document.getElementById("loginModal");
 
+        if (event.target === modal) {
 
-    if (!dateInput) {
-        return;
+            closeLogin();
+        }
     }
+);
 
 
-    const today =
-        new Date();
+/* =========================================
+   SET MINIMUM APPOINTMENT DATE
+========================================= */
+
+const dateInput =
+    document.getElementById("date");
 
 
-    const year =
-        today.getFullYear();
+const today =
+    new Date().toISOString().split("T")[0];
 
 
-    const month =
-        String(today.getMonth() + 1)
-        .padStart(2, "0");
-
-
-    const day =
-        String(today.getDate())
-        .padStart(2, "0");
-
-
-    const formattedDate =
-        year + "-" + month + "-" + day;
-
-
-    dateInput.min =
-        formattedDate;
-}
-
-
-/* =========================================================
-   8. INITIALIZE WEBSITE
-   ========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        setMinimumDate();
-
-        console.log(
-            "Hospital Appointment System loaded successfully."
-        );
-
-    }
+dateInput.setAttribute(
+    "min",
+    today
 );
