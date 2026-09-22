@@ -1,594 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>MediCare - Doctor Dashboard</title>
-
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- CSS -->
+    <title>MediCare Doctor Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <div class="dashboard">
-
-        <!-- ================= SIDEBAR ================= -->
+<div class="page-bg">
+    <div class="dashboard-shell">
 
         <aside class="sidebar" id="sidebar">
-
             <div class="doctor-profile">
-
-                <div class="doctor-photo">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg"
-                        alt="Doctor">
+                <div class="doctor-avatar">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Doctor">
                 </div>
-
                 <h2>Dr. Martin Deo</h2>
-
-                <p>
-                    MBBS, FCPS - MD (Medicine), MCPS
-                </p>
-
+                <p>MBBS, FCPS - MD (Medicine), MCPS</p>
                 <div class="profile-line"></div>
-
             </div>
 
-
-            <!-- Navigation -->
-
-            <nav class="sidebar-nav">
-
-                <a href="#" class="nav-item active">
-                    <i class="fa-solid fa-table-cells"></i>
-                    <span>Dashboard</span>
-                </a>
-
-                <a href="#appointment" class="nav-item">
-                    <i class="fa-regular fa-calendar-check"></i>
-                    <span>Appointment</span>
-                </a>
-
-                <a href="#appointment-page" class="nav-item">
-                    <i class="fa-regular fa-file-lines"></i>
-                    <span>Appointment Page</span>
-                </a>
-
-                <a href="#payment" class="nav-item">
-                    <i class="fa-solid fa-money-bill-wave"></i>
-                    <span>Payment</span>
-                </a>
-
-                <a href="#profile" class="nav-item">
-                    <i class="fa-solid fa-user"></i>
-                    <span>Profile</span>
-                </a>
-
-                <a href="#settings" class="nav-item">
-                    <i class="fa-solid fa-gear"></i>
-                    <span>Settings</span>
-                </a>
-
-                <a href="#" class="nav-item" id="logoutBtn">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span>Logout</span>
-                </a>
-
+            <nav class="navigation">
+                <a class="nav-link active" href="#"><span>▦</span> Dashboard</a>
+                <a class="nav-link" href="#appointments"><span>▣</span> Appointment</a>
+                <a class="nav-link" href="#appointment-page"><span>▤</span> Appointment Page</a>
+                <a class="nav-link" href="#payment"><span>▰</span> Payment</a>
+                <a class="nav-link" href="#profile"><span>●</span> Profile</a>
+                <a class="nav-link" href="#settings"><span>⚙</span> Settings</a>
+                <a class="nav-link" href="#" id="logout"><span>↪</span> Logout</a>
             </nav>
-
         </aside>
 
-
-        <!-- ================= MAIN CONTENT ================= -->
-
-        <main class="main-content">
-
-            <!-- TOP BAR -->
-
+        <main class="content">
             <header class="topbar">
-
-                <div class="page-title">
-                    <h1>Dashboard</h1>
-                </div>
-
+                <h1>Dashboard</h1>
                 <div class="top-actions">
-
-                    <button class="icon-btn" title="Messages">
-                        <i class="fa-regular fa-envelope"></i>
-                    </button>
-
-                    <button class="icon-btn notification-btn" title="Notifications">
-                        <i class="fa-solid fa-bell"></i>
-                        <span class="notification-dot"></span>
-                    </button>
-
+                    <button class="top-btn" id="messageBtn">✉</button>
+                    <button class="top-btn bell" id="bellBtn">♟<i></i></button>
                     <div class="search-box">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" id="searchInput" placeholder="Search">
+                        <span>⌕</span>
+                        <input id="search" type="search" placeholder="Search">
                     </div>
-
-                    <button class="menu-btn" id="menuBtn">
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
-
+                    <button class="top-btn menu-btn" id="menuBtn">☰</button>
                 </div>
-
             </header>
 
-
-            <!-- ================= STATISTICS ================= -->
-
             <section class="stats-grid">
-
-                <!-- Total Patient -->
-
                 <div class="stat-card">
-
-                    <div class="stat-icon">
-                        <i class="fa-solid fa-user-injured"></i>
-                    </div>
-
-                    <div class="stat-info">
-                        <h3>Total Patient</h3>
-                        <strong>2000+</strong>
-                        <p>Till Today</p>
-                    </div>
-
+                    <div class="stat-icon">♟</div>
+                    <div><h3>Total Patient</h3><strong>2000+</strong><p>Till Today</p></div>
                 </div>
-
-
-                <!-- Today Patient -->
-
                 <div class="stat-card">
-
-                    <div class="stat-icon">
-                        <i class="fa-solid fa-user-doctor"></i>
-                    </div>
-
-                    <div class="stat-info">
-                        <h3>Today Patient</h3>
-                        <strong>068</strong>
-                        <p>21 Dec-2021</p>
-                    </div>
-
+                    <div class="stat-icon">♟</div>
+                    <div><h3>Today Patient</h3><strong>068</strong><p>21 Dec-2021</p></div>
                 </div>
-
-
-                <!-- Today Appointment -->
-
                 <div class="stat-card">
-
-                    <div class="stat-icon">
-                        <i class="fa-regular fa-clock"></i>
-                    </div>
-
-                    <div class="stat-info">
-                        <h3>Today Appointments</h3>
-                        <strong>085</strong>
-                        <p>21 Dec-2021</p>
-                    </div>
-
+                    <div class="stat-icon">◷</div>
+                    <div><h3>Today Appointments</h3><strong>085</strong><p>21 Dec-2021</p></div>
                 </div>
-
             </section>
 
-
-            <!-- ================= MIDDLE SECTION ================= -->
-
-            <section class="middle-grid">
-
-                <!-- Patient Summary -->
-
-                <div class="card patient-summary">
-
-                    <div class="card-title">
-                        <h2>Patients Summary December 2021</h2>
+            <section class="three-grid">
+                <article class="panel summary">
+                    <h2>Patients Summary December 2021</h2>
+                    <div class="chart-area">
+                        <div class="donut"></div>
+                        <div class="legend">
+                            <div><b class="blue"></b>New Patients</div>
+                            <div><b class="yellow"></b>Old Patients</div>
+                            <div><b class="dark"></b>Total Patients</div>
+                        </div>
                     </div>
+                </article>
 
-                    <div class="donut-area">
+                <article class="panel appointment" id="appointments">
+                    <h2>Today Appointment</h2>
+                    <div class="appointment-head"><span>Patient</span><span>Name/Diagnosis</span><span>Time</span></div>
 
-                        <div class="donut-chart">
-                            <div class="donut-hole"></div>
-                        </div>
-
-                        <div class="chart-labels">
-
-                            <div>
-                                <span class="legend new"></span>
-                                New Patients
-                            </div>
-
-                            <div>
-                                <span class="legend old"></span>
-                                Old Patients
-                            </div>
-
-                            <div>
-                                <span class="legend total"></span>
-                                Total Patients
-                            </div>
-
-                        </div>
-
+                    <div class="patient-row">
+                        <img src="https://randomuser.me/api/portraits/men/41.jpg">
+                        <div><b>M.J. Mical</b><small>Health Checkup</small></div>
+                        <span class="time">On Going</span>
                     </div>
-
-                </div>
-
-
-                <!-- Today's Appointment -->
-
-                <div class="card today-appointment" id="appointment">
-
-                    <div class="card-title">
-                        <h2>Today Appointment</h2>
-                    </div>
-
-                    <div class="appointment-heading">
-                        <span>Patient</span>
-                        <span>Name/Diagnosis</span>
-                        <span>Time</span>
-                    </div>
-
-
-                    <div class="appointment-row">
-
-                        <div class="patient-small">
-                            <img src="https://randomuser.me/api/portraits/men/41.jpg">
-                        </div>
-
-                        <div>
-                            <strong>M.J. Mical</strong>
-                            <small>Health Checkup</small>
-                        </div>
-
-                        <span class="time-badge ongoing">
-                            On Going
-                        </span>
-
-                    </div>
-
-
-                    <div class="appointment-row">
-
-                        <div class="patient-small">
-                            <img src="https://randomuser.me/api/portraits/men/44.jpg">
-                        </div>
-
-                        <div>
-                            <strong>Sanath Deo</strong>
-                            <small>Health Checkup</small>
-                        </div>
-
-                        <span class="time-badge">
-                            12 : 30 PM
-                        </span>
-
-                    </div>
-
-
-                    <div class="appointment-row">
-
-                        <div class="patient-small">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg">
-                        </div>
-
-                        <div>
-                            <strong>Loeara Phani</strong>
-                            <small>Report</small>
-                        </div>
-
-                        <span class="time-badge">
-                            01 : 00 PM
-                        </span>
-
-                    </div>
-
-
-                    <div class="appointment-row">
-
-                        <div class="patient-small">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg">
-                        </div>
-
-                        <div>
-                            <strong>Komola Haris</strong>
-                            <small>Common Cold</small>
-                        </div>
-
-                        <span class="time-badge">
-                            01 : 30 PM
-                        </span>
-
-                    </div>
-
-                    <button class="see-all">
-                        See All
-                    </button>
-
-                </div>
-
-
-                <!-- Next Patient -->
-
-                <div class="card next-patient">
-
-                    <div class="card-title">
-                        <h2>Next Patient Details</h2>
-                    </div>
-
-                    <div class="next-patient-top">
-
+                    <div class="patient-row">
                         <img src="https://randomuser.me/api/portraits/men/44.jpg">
+                        <div><b>Sanath Deo</b><small>Health Checkup</small></div>
+                        <span class="time">12 : 30 PM</span>
+                    </div>
+                    <div class="patient-row">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg">
+                        <div><b>Loeara Phani</b><small>Report</small></div>
+                        <span class="time">01 : 00 PM</span>
+                    </div>
+                    <div class="patient-row">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg">
+                        <div><b>Komola Haris</b><small>Common Cold</small></div>
+                        <span class="time">01 : 30 PM</span>
+                    </div>
+                    <button class="see-all">See All</button>
+                </article>
 
-                        <div>
-                            <strong>Sanath Deo</strong>
-                            <span>Health Checkup</span>
-                        </div>
-
-                        <div class="patient-id">
-                            <strong>Patient ID</strong>
-                            <span>022090200005</span>
-                        </div>
-
+                <article class="panel next">
+                    <h2>Next Patient Details</h2>
+                    <div class="next-person">
+                        <img src="https://randomuser.me/api/portraits/men/44.jpg">
+                        <div><b>Sanath Deo</b><small>Health Checkup</small></div>
+                        <div class="patient-id"><b>Patient ID</b><small>022090200005</small></div>
                     </div>
 
-
-                    <div class="patient-details">
-
-                        <div>
-                            <small>D.O.B</small>
-                            <strong>15 January 1989</strong>
-                        </div>
-
-                        <div>
-                            <small>Sex</small>
-                            <strong>Male</strong>
-                        </div>
-
-                        <div>
-                            <small>Weight</small>
-                            <strong>59 Kg</strong>
-                        </div>
-
-                        <div>
-                            <small>Last Appointment</small>
-                            <strong>15 Dec - 2021</strong>
-                        </div>
-
-                        <div>
-                            <small>Height</small>
-                            <strong>172 cm</strong>
-                        </div>
-
-                        <div>
-                            <small>Reg. Date</small>
-                            <strong>10 Dec 2021</strong>
-                        </div>
-
+                    <div class="details">
+                        <div><small>D.O.B</small><b>15 January 1989</b></div>
+                        <div><small>Sex</small><b>Male</b></div>
+                        <div><small>Weight</small><b>59 Kg</b></div>
+                        <div><small>Last Appointment</small><b>15 Dec - 2021</b></div>
+                        <div><small>Height</small><b>172 cm</b></div>
+                        <div><small>Reg. Date</small><b>10 Dec 2021</b></div>
                     </div>
 
+                    <h3>Patient History</h3>
+                    <div class="tags"><span>Asthma</span><span>Hypertension</span><span>Fever</span></div>
 
-                    <h3 class="history-title">
-                        Patient History
-                    </h3>
-
-                    <div class="history-tags">
-
-                        <span>Asthma</span>
-                        <span>Hypertension</span>
-                        <span>Fever</span>
-
+                    <div class="patient-actions">
+                        <button class="primary">☎ (308) 555-0102</button>
+                        <button>▣ Document</button>
+                        <button>▢ Chat</button>
                     </div>
-
-
-                    <div class="patient-buttons">
-
-                        <button>
-                            <i class="fa-solid fa-phone"></i>
-                            (308) 555-0102
-                        </button>
-
-                        <button>
-                            <i class="fa-regular fa-folder"></i>
-                            Document
-                        </button>
-
-                        <button>
-                            <i class="fa-regular fa-comment"></i>
-                            Chat
-                        </button>
-
-                    </div>
-
-                    <h3 class="history-title">
-                        Last Prescriptions
-                    </h3>
-
-                </div>
-
+                    <h3>Last Prescriptions</h3>
+                </article>
             </section>
 
+            <section class="three-grid bottom">
+                <article class="panel review">
+                    <h2>Patients Review</h2>
+                    <div class="review-row"><span>Excellent</span><div><i class="p1"></i></div></div>
+                    <div class="review-row"><span>Great</span><div><i class="p2"></i></div></div>
+                    <div class="review-row"><span>Good</span><div><i class="p3"></i></div></div>
+                    <div class="review-row"><span>Average</span><div><i class="p4"></i></div></div>
+                </article>
 
-            <!-- ================= BOTTOM SECTION ================= -->
-
-            <section class="bottom-grid">
-
-                <!-- Patient Review -->
-
-                <div class="card review-card">
-
-                    <div class="card-title">
-                        <h2>Patients Review</h2>
-                    </div>
-
-                    <div class="review-row">
-                        <span>Excellent</span>
-                        <div class="review-line">
-                            <div class="review-progress excellent"></div>
-                        </div>
-                    </div>
-
-                    <div class="review-row">
-                        <span>Great</span>
-                        <div class="review-line">
-                            <div class="review-progress great"></div>
-                        </div>
-                    </div>
-
-                    <div class="review-row">
-                        <span>Good</span>
-                        <div class="review-line">
-                            <div class="review-progress good"></div>
-                        </div>
-                    </div>
-
-                    <div class="review-row">
-                        <span>Average</span>
-                        <div class="review-line">
-                            <div class="review-progress average"></div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <!-- Appointment Request -->
-
-                <div class="card request-card">
-
-                    <div class="card-title">
-                        <h2>Appointment Request</h2>
-                    </div>
-
-
+                <article class="panel requests">
+                    <h2>Appointment Request</h2>
                     <div class="request-row">
-
                         <img src="https://randomuser.me/api/portraits/women/48.jpg">
-
-                        <div class="request-name">
-                            <strong>Maria Sarafat</strong>
-                            <small>Cold</small>
-                        </div>
-
-                        <div class="request-actions">
-                            <button class="accept">
-                                <i class="fa-solid fa-check"></i>
-                            </button>
-
-                            <button class="reject">
-                                <i class="fa-solid fa-xmark"></i>
-                            </button>
-
-                            <button class="message">
-                                <i class="fa-solid fa-comment"></i>
-                            </button>
-                        </div>
-
+                        <div><b>Maria Sarafat</b><small>Cold</small></div>
+                        <div class="request-buttons"><button class="ok">✓</button><button class="no">×</button><button>▰</button></div>
                     </div>
-
-
                     <div class="request-row">
-
                         <img src="https://randomuser.me/api/portraits/men/52.jpg">
-
-                        <div class="request-name">
-                            <strong>Jhon Deo</strong>
-                            <small>Over swtting</small>
-                        </div>
-
-                        <div class="request-actions">
-                            <button class="accept">
-                                <i class="fa-solid fa-check"></i>
-                            </button>
-
-                            <button class="reject">
-                                <i class="fa-solid fa-xmark"></i>
-                            </button>
-
-                            <button class="message">
-                                <i class="fa-solid fa-comment"></i>
-                            </button>
-                        </div>
-
+                        <div><b>Jhon Deo</b><small>Over swtting</small></div>
+                        <div class="request-buttons"><button class="ok">✓</button><button class="no">×</button><button>▰</button></div>
                     </div>
+                    <button class="see-all">See All</button>
+                </article>
 
-                    <button class="see-all">
-                        See All
-                    </button>
-
-                </div>
-
-
-                <!-- Calendar -->
-
-                <div class="card calendar-card">
-
-                    <div class="calendar-header">
-
-                        <h2>Calender</h2>
-
-                        <strong>December - 2021</strong>
-
+                <article class="panel calendar">
+                    <div class="calendar-head"><h2>Calender</h2><b>December - 2021</b></div>
+                    <div class="week"><span>Sa</span><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span></div>
+                    <div class="dates">
+                        <span>18</span><span>19</span><span>20</span><span class="selected">21</span><span>22</span><span>23</span><span>24</span>
+                        <span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+                        <span class="muted">01</span><span class="muted">02</span><span class="muted">03</span><span class="muted">04</span><span class="muted">05</span><span class="muted">06</span><span class="muted">07</span>
                     </div>
-
-                    <div class="calendar-days">
-
-                        <span>Sa</span>
-                        <span>Su</span>
-                        <span>Mo</span>
-                        <span>Tu</span>
-                        <span>We</span>
-                        <span>Th</span>
-                        <span>Fr</span>
-
-                    </div>
-
-                    <div class="calendar-grid">
-
-                        <span>18</span>
-                        <span>19</span>
-                        <span>20</span>
-                        <span class="selected">21</span>
-                        <span>22</span>
-                        <span>23</span>
-                        <span>24</span>
-
-                        <span>25</span>
-                        <span>26</span>
-                        <span>27</span>
-                        <span>28</span>
-                        <span>29</span>
-                        <span>30</span>
-                        <span>31</span>
-
-                        <span class="muted">01</span>
-                        <span class="muted">02</span>
-                        <span class="muted">03</span>
-                        <span class="muted">04</span>
-                        <span class="muted">05</span>
-                        <span class="muted">06</span>
-                        <span class="muted">07</span>
-
-                    </div>
-
-                </div>
-
+                </article>
             </section>
-
         </main>
-
     </div>
-
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-
+</div>
+<script src="script.js"></script>
 </body>
-
 </html>
