@@ -1,5 +1,5 @@
 /* =========================================
-   GLOBAL
+   RESET
 ========================================= */
 
 * {
@@ -14,859 +14,1167 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f5f9fc;
-    color: #1c2938;
-    line-height: 1.6;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-button,
-input,
-select,
-textarea {
-    font-family: inherit;
-}
-
-button {
-    cursor: pointer;
-}
-
-.container {
-    width: min(1150px, 92%);
-    margin: auto;
+    background: #e9edff;
+    color: #222;
 }
 
 
 /* =========================================
-   HEADER
+   MAIN DASHBOARD
 ========================================= */
 
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: white;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-}
-
-.navbar {
-    min-height: 75px;
+.dashboard {
+    width: 94%;
+    max-width: 1400px;
+    min-height: 92vh;
+    margin: 4vh auto;
 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-    gap: 20px;
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 45px rgba(34, 61, 120, 0.15);
 }
 
 
-/* LOGO */
+/* =========================================
+   SIDEBAR
+========================================= */
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.sidebar {
+    width: 225px;
+    flex-shrink: 0;
+
+    background: #ffffff;
+
+    padding: 35px 20px;
+
+    border-right: 1px solid #eeeeee;
 }
 
-.logo-icon {
-    width: 42px;
-    height: 42px;
+
+.doctor-profile {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+
+.doctor-photo {
+    width: 125px;
+    height: 125px;
+
+    margin: 0 auto 12px;
+
+    border-radius: 50%;
+
+    background: #dfe8ff;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
-    background: #0b7fab;
-    color: white;
+    overflow: hidden;
+
+    border: 7px solid #dce7ff;
+}
+
+
+.doctor-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.doctor-profile h2 {
+    font-size: 18px;
+
+    color: #1451aa;
+
+    margin-bottom: 6px;
+}
+
+
+.doctor-profile p {
+    font-size: 9px;
+
+    color: #4670a8;
+
+    line-height: 1.5;
+}
+
+
+.profile-line {
+    width: 120px;
+    height: 2px;
+
+    background: #7896bf;
+
+    margin: 18px auto 0;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.nav-item {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 13px 10px;
+
+    border-radius: 8px;
+
+    color: #333;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    transition: 0.25s;
+}
+
+
+.nav-item i {
+    width: 18px;
+    text-align: center;
+}
+
+
+.nav-item:hover {
+    background: #eef3ff;
+    color: #1252b5;
+}
+
+
+.nav-item.active {
+    color: #1252b5;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.main-content {
+    flex: 1;
+
+    padding: 22px 35px 30px;
+
+    min-width: 0;
+}
+
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.topbar {
+    min-height: 72px;
+
+    background: #f8f8f8;
 
     border-radius: 10px;
 
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.logo h2 {
-    color: #123b56;
-    font-size: 20px;
-}
-
-.logo span {
-    display: block;
-    color: #71808f;
-    font-size: 11px;
-}
-
-
-/* NAVIGATION */
-
-.nav-menu {
     display: flex;
-    gap: 25px;
-}
 
-.nav-menu a {
-    color: #405262;
-    font-size: 14px;
-    font-weight: 600;
-
-    transition: 0.3s;
-}
-
-.nav-menu a:hover {
-    color: #0b7fab;
-}
-
-
-/* BUTTONS */
-
-.btn {
-    border: none;
-    border-radius: 7px;
-
-    padding: 10px 18px;
-
-    font-weight: 600;
-
-    transition: 0.3s;
-}
-
-.btn-primary {
-    background: #0b7fab;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #086486;
-    transform: translateY(-2px);
-}
-
-.btn-outline {
-    background: white;
-    color: #0b7fab;
-    border: 1px solid #0b7fab;
-}
-
-.btn-outline:hover {
-    background: #0b7fab;
-    color: white;
-}
-
-.btn-light {
-    background: white;
-    color: #123b56;
-}
-
-.btn-large {
-    padding: 14px 24px;
-    font-size: 15px;
-}
-
-.btn-full {
-    width: 100%;
-}
-
-.nav-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.menu-toggle {
-    display: none;
-
-    border: none;
-    background: transparent;
-
-    font-size: 28px;
-}
-
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero {
-    min-height: 600px;
-
-    position: relative;
-
-    display: flex;
     align-items: center;
 
-    background-image:
-        url("143643.jpg");
+    justify-content: space-between;
 
-    background-size: cover;
-    background-position: center;
-}
+    padding: 0 25px;
 
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-
-    background: rgba(5, 36, 55, 0.68);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-text {
-    max-width: 650px;
-    color: white;
-}
-
-.badge {
-    display: inline-block;
-
-    padding: 7px 14px;
-
-    border-radius: 30px;
-
-    background: rgba(255, 255, 255, 0.15);
-
-    font-size: 13px;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-size: clamp(42px, 6vw, 70px);
-    line-height: 1.05;
-
-    margin-bottom: 20px;
-}
-
-.hero h1 span {
-    color: #64d4ef;
-}
-
-.hero p {
-    max-width: 570px;
-
-    font-size: 18px;
-
-    color: #e5f2f7;
-
-    margin-bottom: 30px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.hero-stats {
-    display: flex;
-    gap: 45px;
-
-    margin-top: 45px;
-}
-
-.hero-stats strong {
-    display: block;
-    font-size: 25px;
-}
-
-.hero-stats span {
-    color: #c9dce5;
-    font-size: 13px;
+    margin-bottom: 16px;
 }
 
 
-/* =========================================
-   QUICK CARDS
-========================================= */
+.page-title h1 {
+    font-size: 29px;
 
-.quick-section {
-    margin-top: -45px;
-    position: relative;
-    z-index: 5;
+    color: #163550;
 }
 
-.quick-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
 
-    background: white;
-
-    border-radius: 14px;
-
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
-
-    overflow: hidden;
-}
-
-.quick-card {
-    padding: 25px;
-
+.top-actions {
     display: flex;
     align-items: center;
-
-    gap: 15px;
-
-    border-right: 1px solid #e7edf1;
-}
-
-.quick-card:last-child {
-    border-right: none;
-}
-
-.quick-icon {
-    font-size: 30px;
-}
-
-.quick-card h3 {
-    font-size: 15px;
-}
-
-.quick-card p {
-    font-size: 12px;
-    color: #788895;
-}
-
-
-/* =========================================
-   GENERAL SECTIONS
-========================================= */
-
-.section {
-    padding: 90px 0;
-}
-
-.section-heading {
-    text-align: center;
-    max-width: 650px;
-
-    margin: 0 auto 45px;
-}
-
-.section-label {
-    color: #0b7fab;
-
-    font-size: 12px;
-    font-weight: bold;
-
-    letter-spacing: 2px;
-}
-
-.section-heading h2 {
-    font-size: 36px;
-
-    margin: 8px 0 12px;
-
-    color: #16384e;
-}
-
-.section-heading p {
-    color: #72818c;
-}
-
-
-/* =========================================
-   SERVICES
-========================================= */
-
-.service-grid {
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
 
     gap: 20px;
 }
 
-.service-card {
-    background: white;
 
-    padding: 30px 25px;
+.icon-btn,
+.menu-btn {
+    border: none;
 
-    border-radius: 12px;
+    background: transparent;
 
-    border: 1px solid #e5edf2;
+    font-size: 19px;
 
-    transition: 0.3s;
+    cursor: pointer;
+
+    color: #303030;
+
+    position: relative;
 }
 
-.service-card:hover {
-    transform: translateY(-7px);
 
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+.notification-dot {
+    width: 7px;
+    height: 7px;
+
+    background: #1554bd;
+
+    border-radius: 50%;
+
+    position: absolute;
+
+    top: 0;
+    right: -2px;
 }
 
-.service-icon {
-    width: 55px;
-    height: 55px;
+
+.search-box {
+    width: 230px;
+    height: 36px;
+
+    background: #edf1ff;
+
+    border-radius: 5px;
 
     display: flex;
     align-items: center;
-    justify-content: center;
 
-    background: #e8f7fb;
+    gap: 12px;
 
-    border-radius: 12px;
+    padding: 0 15px;
 
-    font-size: 27px;
-
-    margin-bottom: 20px;
+    color: #68758d;
 }
 
-.service-card h3 {
-    margin-bottom: 10px;
-}
 
-.service-card p {
-    color: #758591;
-
-    font-size: 14px;
-
-    margin-bottom: 20px;
-}
-
-.service-card button {
-    background: none;
+.search-box input {
     border: none;
 
-    color: #0b7fab;
+    outline: none;
 
-    font-weight: bold;
+    background: transparent;
+
+    width: 100%;
+
+    font-size: 13px;
+}
+
+
+.menu-btn {
+    font-size: 22px;
 }
 
 
 /* =========================================
-   DOCTORS
+   STAT CARDS
 ========================================= */
 
-.doctors-section {
-    background: #edf7fa;
-}
-
-.doctor-grid {
+.stats-grid {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
 
     gap: 25px;
+
+    margin-bottom: 22px;
 }
 
-.doctor-card {
-    background: white;
 
-    text-align: center;
+.stat-card {
+    min-height: 158px;
 
-    padding: 30px;
+    background: #eef1ff;
 
     border-radius: 14px;
 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 22px;
 }
 
-.doctor-avatar {
+
+.stat-icon {
     width: 95px;
     height: 95px;
+
+    flex-shrink: 0;
+
+    border: 4px solid #1454bd;
+
+    border-radius: 50%;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    margin: 0 auto 15px;
+    color: #1454bd;
 
-    border-radius: 50%;
-
-    background: #e5f6fa;
-
-    font-size: 45px;
+    font-size: 36px;
 }
 
-.doctor-card span {
+
+.stat-info h3 {
+    font-size: 18px;
+
+    font-weight: 400;
+
+    margin-bottom: 10px;
+}
+
+
+.stat-info strong {
     display: block;
 
-    color: #0b7fab;
+    font-size: 28px;
 
-    font-weight: 600;
+    color: #183956;
 
-    margin: 5px 0;
+    margin-bottom: 8px;
 }
 
-.doctor-card p {
-    color: #7b8b95;
 
+.stat-info p {
     font-size: 13px;
-
-    margin-bottom: 20px;
 }
 
 
 /* =========================================
-   APPOINTMENT
+   CARDS
 ========================================= */
 
-.appointment-section {
-    padding: 90px 0;
+.card {
+    background: #ffffff;
 
-    background: #f5f9fc;
-}
-
-.appointment-box {
-    display: grid;
-
-    grid-template-columns: 0.8fr 1.2fr;
-
-    background: white;
-
-    border-radius: 18px;
+    border-radius: 12px;
 
     overflow: hidden;
 
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    min-width: 0;
 }
 
-.appointment-info {
-    padding: 50px;
 
-    background: #123f58;
+.card-title h2 {
+    font-size: 15px;
 
-    color: white;
-}
+    color: #14509e;
 
-.appointment-info h2 {
-    font-size: 35px;
-
-    margin: 15px 0;
-}
-
-.appointment-info p {
-    color: #c8dce5;
-
-    margin-bottom: 30px;
-}
-
-.appointment-feature {
-    margin: 18px 0;
-
-    color: #e5f6fa;
-}
-
-.appointment-form {
-    padding: 45px;
-}
-
-.form-group {
-    margin-bottom: 18px;
-}
-
-.form-group label {
-    display: block;
-
-    font-size: 13px;
     font-weight: 600;
-
-    margin-bottom: 7px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea,
-.modal-content input {
-    width: 100%;
-
-    padding: 12px 13px;
-
-    border: 1px solid #dce5ea;
-
-    border-radius: 7px;
-
-    outline: none;
-
-    background: #fbfdfe;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus,
-.modal-content input:focus {
-    border-color: #0b7fab;
-}
-
-.form-row {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 15px;
 }
 
 
 /* =========================================
-   FOOTER
+   MIDDLE GRID
 ========================================= */
 
-footer {
-    background: #102c3d;
-
-    color: white;
-
-    padding-top: 55px;
-}
-
-.footer-grid {
+.middle-grid {
     display: grid;
 
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns:
+        1.05fr
+        1fr
+        1fr;
 
-    gap: 50px;
+    gap: 25px;
 
-    padding-bottom: 45px;
+    margin-bottom: 22px;
 }
 
-.footer-logo h2 {
-    color: white;
+
+/* =========================================
+   PATIENT SUMMARY
+========================================= */
+
+.patient-summary {
+    background: #ffffff;
+
+    padding: 17px 24px 25px;
+
+    min-height: 395px;
 }
 
-.footer-grid p {
-    color: #b5c7d0;
+
+.donut-area {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 330px;
+}
+
+
+.donut-chart {
+    width: 240px;
+    height: 240px;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(
+            #1654c5 0deg 125deg,
+            #d7e0fa 125deg 240deg,
+            #f9b93c 240deg 360deg
+        );
+
+    position: relative;
+
+    transform: rotate(-90deg);
+}
+
+
+.donut-hole {
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    top: 60px;
+    left: 60px;
+}
+
+
+.chart-labels {
+    align-self: flex-start;
+
+    margin-top: -8px;
+
+    font-size: 14px;
+
+    line-height: 28px;
+}
+
+
+.chart-labels div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.legend {
+    width: 12px;
+    height: 12px;
+
+    display: inline-block;
+}
+
+
+.legend.new {
+    background: #d7e0fa;
+}
+
+.legend.old {
+    background: #f9b93c;
+}
+
+.legend.total {
+    background: #1654c5;
+}
+
+
+/* =========================================
+   TODAY APPOINTMENT
+========================================= */
+
+.today-appointment {
+    background: #eef1ff;
+
+    padding: 20px;
+}
+
+
+.appointment-heading {
+    display: grid;
+
+    grid-template-columns: 75px 1fr 70px;
+
+    margin: 20px 0 12px;
+
+    font-size: 13px;
+
+    color: #333;
+}
+
+
+.appointment-row {
+    display: grid;
+
+    grid-template-columns: 55px 1fr auto;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 12px;
+}
+
+
+.patient-small img {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+
+.appointment-row strong {
+    display: block;
+
+    font-size: 15px;
+
+    color: #1c579e;
+}
+
+
+.appointment-row small {
+    display: block;
+
+    font-size: 11px;
+
+    margin-top: 3px;
+}
+
+
+.time-badge {
+    padding: 7px 9px;
+
+    background: #dbe6ff;
+
+    color: #1955aa;
+
+    font-size: 11px;
+
+    border-radius: 4px;
+
+    white-space: nowrap;
+}
+
+
+.time-badge.ongoing {
+    font-weight: 600;
+}
+
+
+.see-all {
+    border: none;
+
+    background: transparent;
+
+    color: #1454a5;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin-top: 3px;
+}
+
+
+/* =========================================
+   NEXT PATIENT
+========================================= */
+
+.next-patient {
+    background: #eef1ff;
+
+    padding: 20px;
+}
+
+
+.next-patient-top {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 18px 0;
+}
+
+
+.next-patient-top img {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+
+.next-patient-top strong {
+    display: block;
+
+    color: #1552a2;
+
+    font-size: 15px;
+}
+
+
+.next-patient-top span {
+    font-size: 11px;
+}
+
+
+.patient-id {
+    margin-left: auto;
+
+    text-align: right;
+}
+
+
+.patient-id span {
+    display: block;
+
+    margin-top: 5px;
+}
+
+
+.patient-details {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px 12px;
+}
+
+
+.patient-details small {
+    display: block;
+
+    font-size: 10px;
+
+    margin-bottom: 5px;
+}
+
+
+.patient-details strong {
+    font-size: 10px;
+
+    font-weight: 500;
+}
+
+
+.history-title {
+    color: #1d559f;
+
+    font-size: 12px;
+
+    margin: 15px 0 10px;
+}
+
+
+.history-tags {
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.history-tags span {
+    padding: 6px 10px;
+
+    border-radius: 4px;
+
+    font-size: 9px;
+
+    background: #f4e1ad;
+}
+
+
+.history-tags span:nth-child(2) {
+    background: #bfcff2;
+}
+
+
+.history-tags span:nth-child(3) {
+    background: #f6d4d4;
+}
+
+
+.patient-buttons {
+    display: grid;
+
+    grid-template-columns: 1.3fr 1fr 0.7fr;
+
+    gap: 7px;
 
     margin-top: 12px;
 }
 
-.footer-grid h3 {
-    margin-bottom: 15px;
+
+.patient-buttons button {
+    border: 1px solid #1757ad;
+
+    background: transparent;
+
+    color: #1757ad;
+
+    border-radius: 4px;
+
+    padding: 6px 4px;
+
+    font-size: 9px;
+
+    cursor: pointer;
 }
 
-.footer-grid a {
-    display: block;
 
-    color: #b5c7d0;
+.patient-buttons button:first-child {
+    background: #1554b2;
 
-    margin: 8px 0;
-
-    font-size: 14px;
-}
-
-.footer-grid a:hover {
     color: white;
 }
 
-.copyright {
-    text-align: center;
 
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+/* =========================================
+   BOTTOM GRID
+========================================= */
 
-    padding: 20px;
+.bottom-grid {
+    display: grid;
 
-    color: #9fb3bd;
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap: 25px;
+}
+
+
+/* =========================================
+   REVIEW
+========================================= */
+
+.review-card {
+    padding: 17px 24px;
+
+    min-height: 180px;
+}
+
+
+.review-row {
+    display: grid;
+
+    grid-template-columns: 65px 1fr;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin-top: 17px;
 
     font-size: 12px;
 }
 
 
+.review-line {
+    height: 5px;
+
+    background: #edf0f7;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.review-progress {
+    height: 100%;
+
+    border-radius: 10px;
+}
+
+
+.excellent {
+    width: 75%;
+    background: #1654bd;
+}
+
+.great {
+    width: 38%;
+    background: #188c39;
+}
+
+.good {
+    width: 30%;
+    background: #e08a17;
+}
+
+.average {
+    width: 28%;
+    background: #3ebbc0;
+}
+
+
 /* =========================================
-   LOGIN MODAL
+   APPOINTMENT REQUEST
 ========================================= */
 
-.modal {
-    position: fixed;
+.request-card {
+    background: #eef1ff;
 
-    inset: 0;
+    padding: 17px 22px;
+}
 
-    z-index: 2000;
 
-    display: none;
+.request-row {
+    display: grid;
+
+    grid-template-columns: 42px 1fr auto;
 
     align-items: center;
-    justify-content: center;
 
-    background: rgba(0, 0, 0, 0.65);
+    gap: 10px;
 
-    padding: 20px;
+    margin: 16px 0;
 }
 
-.modal.active {
-    display: flex;
+
+.request-row img {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
 }
 
-.modal-content {
-    position: relative;
 
-    width: min(400px, 100%);
+.request-name strong {
+    display: block;
 
-    background: white;
-
-    border-radius: 14px;
-
-    padding: 35px;
-
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-}
-
-.modal-content h2 {
-    color: #123b56;
-
-    margin-bottom: 8px;
-}
-
-.modal-content p {
-    color: #71808f;
+    color: #1654a1;
 
     font-size: 14px;
-
-    margin-bottom: 20px;
 }
 
-.modal-content input {
-    margin-bottom: 15px;
+
+.request-name small {
+    font-size: 10px;
 }
 
-.close-button {
-    position: absolute;
 
-    top: 12px;
-    right: 15px;
+.request-actions {
+    display: flex;
 
+    gap: 5px;
+}
+
+
+.request-actions button {
     border: none;
 
-    background: none;
+    width: 23px;
+    height: 23px;
 
-    font-size: 28px;
+    border-radius: 4px;
 
-    color: #71808f;
+    cursor: pointer;
+
+    font-size: 10px;
+}
+
+
+.accept {
+    background: #b8e0c3;
+    color: #1d7b38;
+}
+
+
+.reject {
+    background: #f4cccc;
+    color: #d03434;
+}
+
+
+.message {
+    background: #b8dfcc;
+    color: #177d52;
 }
 
 
 /* =========================================
-   RESPONSIVE DESIGN
+   CALENDAR
 ========================================= */
 
-@media (max-width: 900px) {
+.calendar-card {
+    padding: 17px 22px;
 
-    .nav-menu {
-        position: absolute;
+    min-height: 180px;
+}
 
-        top: 75px;
-        left: 0;
-        right: 0;
 
-        display: none;
+.calendar-header {
+    display: flex;
 
-        flex-direction: column;
+    justify-content: space-between;
 
-        background: white;
+    margin-bottom: 18px;
+}
 
+
+.calendar-header h2 {
+    color: #14509e;
+
+    font-size: 15px;
+}
+
+
+.calendar-header strong {
+    color: #14509e;
+
+    font-size: 14px;
+}
+
+
+.calendar-days,
+.calendar-grid {
+    display: grid;
+
+    grid-template-columns: repeat(7, 1fr);
+
+    text-align: center;
+}
+
+
+.calendar-days {
+    font-size: 12px;
+
+    margin-bottom: 12px;
+}
+
+
+.calendar-grid {
+    row-gap: 12px;
+
+    font-size: 12px;
+}
+
+
+.calendar-grid span {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    margin: auto;
+
+    border-radius: 50%;
+}
+
+
+.calendar-grid .selected {
+    color: #1554b2;
+
+    font-weight: bold;
+}
+
+
+.calendar-grid .muted {
+    color: #c9c9c9;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1200px) {
+
+    .dashboard {
+        width: 97%;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
         padding: 20px;
-
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     }
 
-    .nav-menu.active {
-        display: flex;
+    .stats-grid {
+        gap: 15px;
     }
 
-    .menu-toggle {
-        display: block;
+    .middle-grid,
+    .bottom-grid {
+        gap: 15px;
     }
 
-    .nav-buttons {
-        display: none;
+    .stat-card {
+        gap: 12px;
+        padding: 15px;
     }
 
-    .quick-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .stat-icon {
+        width: 75px;
+        height: 75px;
+
+        font-size: 27px;
     }
 
-    .quick-card {
-        border-bottom: 1px solid #e7edf1;
+    .stat-info strong {
+        font-size: 22px;
     }
 
-    .service-grid {
-        grid-template-columns: repeat(2, 1fr);
+}
+
+
+@media (max-width: 950px) {
+
+    .dashboard {
+        margin: 0;
+
+        width: 100%;
+
+        min-height: 100vh;
+
+        border-radius: 0;
     }
 
-    .doctor-grid {
+    .sidebar {
+        position: fixed;
+
+        left: -230px;
+
+        top: 0;
+
+        bottom: 0;
+
+        z-index: 100;
+
+        transition: 0.3s;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .stats-grid {
         grid-template-columns: 1fr;
     }
 
-    .appointment-box {
+    .middle-grid,
+    .bottom-grid {
         grid-template-columns: 1fr;
     }
 
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
 }
 
 
 @media (max-width: 600px) {
 
-    .navbar {
-        min-height: 65px;
+    .main-content {
+        padding: 12px;
     }
 
-    .logo h2 {
-        font-size: 17px;
+    .topbar {
+        padding: 0 15px;
     }
 
-    .logo span {
-        font-size: 9px;
+    .page-title h1 {
+        font-size: 22px;
     }
 
-    .hero {
-        min-height: 650px;
+    .search-box {
+        width: 130px;
     }
 
-    .hero h1 {
-        font-size: 43px;
+    .top-actions {
+        gap: 10px;
     }
 
-    .hero p {
+    .stat-card {
+        min-height: 130px;
+    }
+
+    .patient-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .appointment-heading {
+        display: none;
+    }
+
+    .appointment-row {
+        grid-template-columns: 45px 1fr auto;
+    }
+
+    .patient-buttons {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .search-box {
+        display: none;
+    }
+
+    .stat-icon {
+        width: 65px;
+        height: 65px;
+    }
+
+    .stat-info h3 {
         font-size: 15px;
     }
 
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
+    .stat-info strong {
+        font-size: 20px;
     }
 
-    .hero-buttons .btn {
-        width: 100%;
-    }
-
-    .hero-stats {
-        gap: 25px;
-    }
-
-    .quick-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .quick-card {
-        border-right: none;
-    }
-
-    .section {
-        padding: 65px 0;
-    }
-
-    .section-heading h2 {
-        font-size: 29px;
-    }
-
-    .service-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .appointment-info,
-    .appointment-form {
-        padding: 30px 22px;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
 }
