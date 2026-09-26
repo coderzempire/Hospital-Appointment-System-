@@ -114,9 +114,13 @@ body {
 
     display: flex;
     align-items: center;
+    justify-content: center;
 
     position: relative;
+
+    padding: 40px;
 }
+
 
 
 /* ================================
@@ -159,9 +163,10 @@ body {
 ================================ */
 
 .login-card {
-    width: 66%;
+    width: 75%;
+    max-width: 1050px;
 
-    height: 430px;
+    min-height: 430px;
 
     background: #f7f8fa;
 
@@ -169,11 +174,12 @@ body {
 
     position: relative;
 
-    border-radius: 160px 0 0 160px;
+    border-radius: 80px;
 
-    padding: 78px 115px 50px 115px;
+    padding: 80px 110px 50px 110px;
 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.20);
 }
 
 
