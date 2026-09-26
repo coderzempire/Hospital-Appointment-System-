@@ -3,169 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediCare Doctor Dashboard</title>
+
+    <title>Global Hospitals - Login</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div class="page-bg">
-    <div class="dashboard-shell">
 
-        <aside class="sidebar" id="sidebar">
-            <div class="doctor-profile">
-                <div class="doctor-avatar">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Doctor">
-                </div>
-                <h2>Dr. Martin Deo</h2>
-                <p>MBBS, FCPS - MD (Medicine), MCPS</p>
-                <div class="profile-line"></div>
+<body>
+
+    <!-- Main Page -->
+    <div class="login-page">
+
+        <!-- Navigation Bar -->
+        <header class="navbar">
+
+            <div class="logo">
+                <span class="logo-icon">
+                    ♟
+                </span>
+                <span>GLOBAL HOSPITALS</span>
             </div>
 
-            <nav class="navigation">
-                <a class="nav-link active" href="#"><span>▦</span> Dashboard</a>
-                <a class="nav-link" href="#appointments"><span>▣</span> Appointment</a>
-                <a class="nav-link" href="#appointment-page"><span>▤</span> Appointment Page</a>
-                <a class="nav-link" href="#payment"><span>▰</span> Payment</a>
-                <a class="nav-link" href="#profile"><span>●</span> Profile</a>
-                <a class="nav-link" href="#settings"><span>⚙</span> Settings</a>
-                <a class="nav-link" href="#" id="logout"><span>↪</span> Logout</a>
+            <nav>
+                <a href="#">HOME</a>
+                <a href="#">ABOUT US</a>
+                <a href="#">CONTACT</a>
             </nav>
-        </aside>
 
-        <main class="content">
-            <header class="topbar">
-                <h1>Dashboard</h1>
-                <div class="top-actions">
-                    <button class="top-btn" id="messageBtn">✉</button>
-                    <button class="top-btn bell" id="bellBtn">♟<i></i></button>
-                    <div class="search-box">
-                        <span>⌕</span>
-                        <input id="search" type="search" placeholder="Search">
-                    </div>
-                    <button class="top-btn menu-btn" id="menuBtn">☰</button>
-                </div>
-            </header>
+        </header>
 
-            <section class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon">♟</div>
-                    <div><h3>Total Patient</h3><strong>2000+</strong><p>Till Today</p></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Left Welcome Section -->
+            <section class="welcome-section">
+
+                <div class="rocket">
+                    🚀
                 </div>
-                <div class="stat-card">
-                    <div class="stat-icon">♟</div>
-                    <div><h3>Today Patient</h3><strong>068</strong><p>21 Dec-2021</p></div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">◷</div>
-                    <div><h3>Today Appointments</h3><strong>085</strong><p>21 Dec-2021</p></div>
-                </div>
+
+                <h1>Welcome</h1>
+
             </section>
 
-            <section class="three-grid">
-                <article class="panel summary">
-                    <h2>Patients Summary December 2021</h2>
-                    <div class="chart-area">
-                        <div class="donut"></div>
-                        <div class="legend">
-                            <div><b class="blue"></b>New Patients</div>
-                            <div><b class="yellow"></b>Old Patients</div>
-                            <div><b class="dark"></b>Total Patients</div>
-                        </div>
-                    </div>
-                </article>
 
-                <article class="panel appointment" id="appointments">
-                    <h2>Today Appointment</h2>
-                    <div class="appointment-head"><span>Patient</span><span>Name/Diagnosis</span><span>Time</span></div>
+            <!-- Login Card -->
+            <section class="login-card">
 
-                    <div class="patient-row">
-                        <img src="https://randomuser.me/api/portraits/men/41.jpg">
-                        <div><b>M.J. Mical</b><small>Health Checkup</small></div>
-                        <span class="time">On Going</span>
-                    </div>
-                    <div class="patient-row">
-                        <img src="https://randomuser.me/api/portraits/men/44.jpg">
-                        <div><b>Sanath Deo</b><small>Health Checkup</small></div>
-                        <span class="time">12 : 30 PM</span>
-                    </div>
-                    <div class="patient-row">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg">
-                        <div><b>Loeara Phani</b><small>Report</small></div>
-                        <span class="time">01 : 00 PM</span>
-                    </div>
-                    <div class="patient-row">
-                        <img src="https://randomuser.me/api/portraits/women/65.jpg">
-                        <div><b>Komola Haris</b><small>Common Cold</small></div>
-                        <span class="time">01 : 30 PM</span>
-                    </div>
-                    <button class="see-all">See All</button>
-                </article>
+                <!-- User Type -->
+                <div class="user-switch">
 
-                <article class="panel next">
-                    <h2>Next Patient Details</h2>
-                    <div class="next-person">
-                        <img src="https://randomuser.me/api/portraits/men/44.jpg">
-                        <div><b>Sanath Deo</b><small>Health Checkup</small></div>
-                        <div class="patient-id"><b>Patient ID</b><small>022090200005</small></div>
-                    </div>
+                    <button class="user-type" onclick="changeRole('Patient')">
+                        Patient
+                    </button>
 
-                    <div class="details">
-                        <div><small>D.O.B</small><b>15 January 1989</b></div>
-                        <div><small>Sex</small><b>Male</b></div>
-                        <div><small>Weight</small><b>59 Kg</b></div>
-                        <div><small>Last Appointment</small><b>15 Dec - 2021</b></div>
-                        <div><small>Height</small><b>172 cm</b></div>
-                        <div><small>Reg. Date</small><b>10 Dec 2021</b></div>
+                    <button class="user-type active" onclick="changeRole('Doctor')">
+                        Doctor
+                    </button>
+
+                    <button class="user-type" onclick="changeRole('Admin')">
+                        Admin
+                    </button>
+
+                </div>
+
+
+                <!-- Login Heading -->
+                <h2 id="loginTitle">
+                    Login as Doctor
+                </h2>
+
+
+                <!-- Login Form -->
+                <form id="loginForm">
+
+                    <div class="input-row">
+
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Username"
+                            value="Ganesh"
+                            required
+                        >
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Password"
+                            value="123456789"
+                            required
+                        >
+
                     </div>
 
-                    <h3>Patient History</h3>
-                    <div class="tags"><span>Asthma</span><span>Hypertension</span><span>Fever</span></div>
 
-                    <div class="patient-actions">
-                        <button class="primary">☎ (308) 555-0102</button>
-                        <button>▣ Document</button>
-                        <button>▢ Chat</button>
+                    <div class="button-container">
+
+                        <button type="submit" class="login-button">
+                            Login
+                        </button>
+
                     </div>
-                    <h3>Last Prescriptions</h3>
-                </article>
+
+                </form>
+
             </section>
 
-            <section class="three-grid bottom">
-                <article class="panel review">
-                    <h2>Patients Review</h2>
-                    <div class="review-row"><span>Excellent</span><div><i class="p1"></i></div></div>
-                    <div class="review-row"><span>Great</span><div><i class="p2"></i></div></div>
-                    <div class="review-row"><span>Good</span><div><i class="p3"></i></div></div>
-                    <div class="review-row"><span>Average</span><div><i class="p4"></i></div></div>
-                </article>
-
-                <article class="panel requests">
-                    <h2>Appointment Request</h2>
-                    <div class="request-row">
-                        <img src="https://randomuser.me/api/portraits/women/48.jpg">
-                        <div><b>Maria Sarafat</b><small>Cold</small></div>
-                        <div class="request-buttons"><button class="ok">✓</button><button class="no">×</button><button>▰</button></div>
-                    </div>
-                    <div class="request-row">
-                        <img src="https://randomuser.me/api/portraits/men/52.jpg">
-                        <div><b>Jhon Deo</b><small>Over swtting</small></div>
-                        <div class="request-buttons"><button class="ok">✓</button><button class="no">×</button><button>▰</button></div>
-                    </div>
-                    <button class="see-all">See All</button>
-                </article>
-
-                <article class="panel calendar">
-                    <div class="calendar-head"><h2>Calender</h2><b>December - 2021</b></div>
-                    <div class="week"><span>Sa</span><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span></div>
-                    <div class="dates">
-                        <span>18</span><span>19</span><span>20</span><span class="selected">21</span><span>22</span><span>23</span><span>24</span>
-                        <span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
-                        <span class="muted">01</span><span class="muted">02</span><span class="muted">03</span><span class="muted">04</span><span class="muted">05</span><span class="muted">06</span><span class="muted">07</span>
-                    </div>
-                </article>
-            </section>
         </main>
+
     </div>
-</div>
-<script src="script.js"></script>
+
+
+    <script src="script.js"></script>
+
 </body>
 </html>
